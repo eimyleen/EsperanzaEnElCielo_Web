@@ -1,6 +1,123 @@
 
 import ImagenWiki from '../components/ImagenWiki'
 
+/* ========================================
+   REQUISITOS DEL VIDEOJUEGO
+======================================== */
+
+const requisitos = [
+  {
+    tipo: 'Mínimos',
+    clase: 'requisitos-minimos',
+    descripcion:
+      'Especificaciones estimadas para ejecutar el videojuego.',
+    componentes: [
+      {
+        nombre: 'Sistema operativo',
+        valor: 'Windows 10 de 64 bits'
+      },
+      {
+        nombre: 'Procesador',
+        valor: 'Intel Core i3 o AMD equivalente'
+      },
+      {
+        nombre: 'Memoria RAM',
+        valor: '4 GB'
+      },
+      {
+        nombre: 'Tarjeta gráfica',
+        valor: 'Gráficos integrados compatibles con DirectX 11'
+      },
+      {
+        nombre: 'Almacenamiento',
+        valor: 'Espacio requerido por definir'
+      },
+      {
+        nombre: 'Periféricos',
+        valor: 'Teclado y mouse'
+      },
+      {
+        nombre: 'Conexión a internet',
+        valor: 'No prevista como necesaria para jugar'
+      }
+    ]
+  },
+  {
+    tipo: 'Recomendados',
+    clase: 'requisitos-recomendados',
+    descripcion:
+      'Especificaciones estimadas para una mejor experiencia.',
+    componentes: [
+      {
+        nombre: 'Sistema operativo',
+        valor: 'Windows 10 u 11 de 64 bits'
+      },
+      {
+        nombre: 'Procesador',
+        valor: 'Intel Core i5 o AMD Ryzen 5'
+      },
+      {
+        nombre: 'Memoria RAM',
+        valor: '8 GB'
+      },
+      {
+        nombre: 'Tarjeta gráfica',
+        valor: 'Gráficos integrados modernos o GPU dedicada compatible con DirectX 11'
+      },
+      {
+        nombre: 'Almacenamiento',
+        valor: 'Espacio requerido por definir'
+      },
+      {
+        nombre: 'Periféricos',
+        valor: 'Teclado y mouse'
+      },
+      {
+        nombre: 'Conexión a internet',
+        valor: 'Para descargar el juego y sus actualizaciones'
+      }
+    ]
+  }
+]
+
+/* ========================================
+   COMPONENTE DE TARJETA DE REQUISITOS
+======================================== */
+
+function TarjetaRequisitos({ requisito }) {
+  return (
+    <article
+      className={`requisitos-tarjeta ${requisito.clase}`}
+    >
+      <div className="requisitos-encabezado">
+        <span className="requisitos-etiqueta">
+          REQUISITOS
+        </span>
+
+        <h3>{requisito.tipo}</h3>
+
+        <p>{requisito.descripcion}</p>
+      </div>
+
+      <dl className="requisitos-lista">
+        {requisito.componentes.map((componente) => (
+          <div
+            className="requisitos-fila"
+            key={componente.nombre}
+          >
+            <dt>{componente.nombre}</dt>
+            <dd>{componente.valor}</dd>
+          </div>
+        ))}
+      </dl>
+    </article>
+  )
+}
+
+/* ========================================
+   PÁGINA DE INICIO
+======================================== */
+
 function Inicio() {
   return (
     <div id="inicio" className="pagina-inicio">
@@ -190,6 +307,48 @@ function Inicio() {
           </div>
 
         </div>
+      </section>
+
+      {/* =====================================
+          SECCIÓN 6: REQUISITOS
+      ===================================== */}
+
+      <section
+        id="requisitos"
+        className="panel-wiki revelar seccion-requisitos"
+      >
+        <h2>Requisitos del videojuego</h2>
+
+        <p>
+          Consulta las especificaciones estimadas
+          para ejecutar Esperanza en el Cielo
+          en una computadora con Windows.
+        </p>
+
+        <p>
+          Los requisitos son provisionales,
+          ya que el videojuego todavía se
+          encuentra en desarrollo.
+        </p>
+
+        <div className="requisitos-grid">
+          {requisitos.map((requisito) => (
+            <TarjetaRequisitos
+              key={requisito.tipo}
+              requisito={requisito}
+            />
+          ))}
+        </div>
+
+        <div className="requisitos-aviso">
+          <strong>Importante:</strong> Estas
+          especificaciones son estimaciones
+          iniciales. Los requisitos definitivos
+          se establecerán después de realizar
+          pruebas de rendimiento con una
+          versión ejecutable del videojuego.
+        </div>
+
       </section>
 
     </div>
