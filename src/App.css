@@ -1,184 +1,1992 @@
-.counter {
-  font-size: 16px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  color: var(--accent);
-  background: var(--accent-bg);
-  border: 2px solid transparent;
-  transition: border-color 0.3s;
-  margin-bottom: 24px;
 
-  &:hover {
-    border-color: var(--accent-border);
-  }
-  &:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-  }
+/* ========================================
+   ESPERANZA EN EL CIELO - WIKI
+   ESTILOS PRINCIPALES
+======================================== */
+
+/* Contenedor principal */
+#root {
+  min-height: 100vh;
 }
 
-.hero {
+/* ========================================
+   FONDO FIJO DE LA WIKI
+======================================== */
+
+.fondo-wiki {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+
+  z-index: 0;
+
+  background-image: url('/images/fondo-wiki.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+/* ========================================
+   PORTADA PRINCIPAL
+======================================== */
+
+.portada {
   position: relative;
+  z-index: 1;
 
-  .base,
-  .framework,
-  .vite {
-    inset-inline: 0;
-    margin: 0 auto;
+  min-height: 100vh;
+  min-height: 100svh;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  /* Espacio desde la parte superior */
+  padding: 55px 24px 24px;
+}
+
+/* ========================================
+   LOGO DE LA WIKI
+======================================== */
+
+.logo-wiki {
+  /* Tamaño reducido */
+  width: min(55vw, 520px);
+  max-width: 100%;
+  height: auto;
+
+  object-fit: contain;
+
+  /* Animación de entrada */
+  animation: reboteLogo 1.1s ease-out both;
+
+  /* Sombra para resaltar sobre el fondo */
+  filter: drop-shadow(
+    0 10px 20px rgba(0, 0, 0, 0.65)
+  );
+}
+
+/* ========================================
+   ANIMACIÓN DE REBOTE DEL LOGO
+======================================== */
+
+@keyframes reboteLogo {
+  0% {
+    opacity: 0;
+    transform: translateY(-120px) scale(0.85);
   }
 
-  .base {
-    width: 170px;
-    position: relative;
-    z-index: 0;
+  55% {
+    opacity: 1;
+    transform: translateY(18px) scale(1.04);
   }
 
-  .framework,
-  .vite {
-    position: absolute;
+  75% {
+    transform: translateY(-12px) scale(0.98);
   }
 
-  .framework {
-    z-index: 1;
-    top: 34px;
-    height: 28px;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg)
-      scale(1.4);
+  90% {
+    transform: translateY(5px) scale(1.01);
   }
 
-  .vite {
-    z-index: 0;
-    top: 107px;
-    height: 26px;
-    width: auto;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg)
-      scale(0.8);
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
 }
 
-#center {
+/* ========================================
+   CONTENIDO DE LA WIKI
+======================================== */
+
+.contenido-wiki {
+  position: relative;
+  z-index: 1;
+
+  width: min(1100px, 92%);
+  margin: 0 auto;
+
+  padding: 30px 0 120px;
+}
+
+/* ========================================
+   PANELES FUTURISTAS
+======================================== */
+
+.panel-wiki {
+  background: rgba(18, 22, 40, 0.92);
+
+  border: 2px solid #a77bdb;
+  border-radius: 14px;
+
+  padding: 35px;
+  margin-bottom: 50px;
+
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.4);
+
+  backdrop-filter: blur(8px);
+}
+
+/* Títulos de los paneles */
+.panel-wiki h1,
+.panel-wiki h2 {
+  color: #b7ffe1;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+/* Párrafos */
+.panel-wiki p {
+  color: #e6e7ef;
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+
+/* ========================================
+   ANIMACIÓN AL HACER SCROLL
+======================================== */
+
+/* Estado inicial: oculto */
+.revelar {
+  opacity: 0;
+  transform: translateY(50px);
+
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+/* Estado visible */
+.revelar.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========================================
+   DISEÑO RESPONSIVE - TABLETS
+======================================== */
+
+@media (max-width: 768px) {
+
+  .portada {
+    padding: 45px 20px 20px;
+  }
+
+  .logo-wiki {
+    width: min(85vw, 420px);
+  }
+
+  .contenido-wiki {
+    width: 94%;
+    padding-top: 25px;
+  }
+
+  .panel-wiki {
+    padding: 22px;
+    margin-bottom: 35px;
+  }
+
+  .panel-wiki h1 {
+    font-size: 1.7rem;
+  }
+
+  .panel-wiki h2 {
+    font-size: 1.4rem;
+  }
+
+}
+
+/* ========================================
+   DISEÑO RESPONSIVE - CELULARES
+======================================== */
+
+@media (max-width: 480px) {
+
+  .portada {
+    padding: 35px 15px 15px;
+  }
+
+  .logo-wiki {
+    width: 90%;
+  }
+
+  .fondo-wiki {
+    background-position: center center;
+  }
+
+  .panel-wiki {
+    padding: 18px;
+    border-radius: 10px;
+  }
+
+  .panel-wiki h1 {
+    font-size: 1.4rem;
+  }
+
+  .panel-wiki h2 {
+    font-size: 1.2rem;
+  }
+
+  .panel-wiki p {
+    font-size: 0.95rem;
+  }
+
+}
+
+/* ========================================
+   ACCESIBILIDAD
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .logo-wiki {
+    animation: none;
+  }
+
+  .revelar {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+}
+
+
+/* ========================================
+   ESTRUCTURA GENERAL DE LA WIKI
+======================================== */
+
+.wiki-estructura {
+  position: relative;
+  z-index: 1;
+
+  display: grid;
+  grid-template-columns: 230px minmax(0, 1fr);
+  align-items: start;
+  gap: 25px;
+
+  width: min(1300px, 94%);
+  margin: 0 auto;
+  padding-bottom: 100px;
+}
+
+/* ========================================
+   MENÚ LATERAL
+======================================== */
+
+.sidebar-wiki {
+  position: sticky;
+  top: 20px;
+
+  background: rgba(18, 22, 40, 0.94);
+  border: 2px solid #a77bdb;
+  border-radius: 14px;
+
+  padding: 20px;
+
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+}
+
+.sidebar-wiki h2 {
+  color: #b7ffe1;
+  font-size: 1.1rem;
+  margin: 0 0 15px;
+}
+
+.sidebar-wiki nav {
   display: flex;
   flex-direction: column;
-  gap: 25px;
-  place-content: center;
-  place-items: center;
-  flex-grow: 1;
+  gap: 8px;
+}
 
-  @media (max-width: 1024px) {
-    padding: 32px 20px 24px;
+.sidebar-wiki nav a {
+  display: block;
+  padding: 11px 14px;
+
+  color: #e6e7ef;
+  text-decoration: none;
+
+  background: rgba(39, 45, 76, 0.85);
+  border-radius: 8px;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.sidebar-wiki nav a:hover {
+  background: #a77bdb;
+  color: #101428;
+}
+
+.sidebar-wiki p {
+  color: #c8c8db;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.sidebar-separador {
+  height: 1px;
+  background: rgba(167, 123, 219, 0.4);
+  margin: 22px 0;
+}
+
+/* ========================================
+   CONTENIDO JUNTO AL MENÚ
+======================================== */
+
+.wiki-estructura .contenido-wiki {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.pagina-inicio .panel-wiki {
+  margin-bottom: 30px;
+}
+
+.pagina-inicio .panel-wiki p + p {
+  margin-top: 16px;
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 768px) {
+  .wiki-estructura {
+    grid-template-columns: 1fr;
+    width: 94%;
+    gap: 20px;
+  }
+
+  .sidebar-wiki {
+    position: relative;
+    top: auto;
+  }
+
+  .sidebar-wiki nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar-wiki {
+    padding: 15px;
+  }
+
+  .sidebar-wiki nav {
+    grid-template-columns: 1fr;
+  }
+
+  .wiki-estructura {
+    width: 94%;
+  }
+}
+
+
+
+/* ========================================
+   FOOTER - ESPERANZA EN EL CIELO
+======================================== */
+
+.footer-wiki {
+  position: relative;
+  z-index: 1;
+
+  width: min(1300px, 94%);
+  margin: 0 auto 30px;
+
+  background: rgba(18, 22, 40, 0.94);
+  border: 2px solid #a77bdb;
+  border-radius: 14px;
+
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+}
+
+/* CONTENIDO PRINCIPAL */
+
+.footer-contenido {
+  padding: 30px 35px;
+  text-align: center;
+}
+
+/* NOMBRE DEL JUEGO */
+
+.footer-wiki h2 {
+  color: #b7ffe1;
+  font-family: 'Oxanium', sans-serif;
+  font-size: 1.6rem;
+  margin: 0 0 10px;
+}
+
+/* DESCRIPCIÓN */
+
+.footer-descripcion {
+  color: #c8c8db;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* LÍNEAS SEPARADORAS */
+
+.footer-separador {
+  height: 1px;
+  background: rgba(167, 123, 219, 0.4);
+  margin: 25px 0;
+}
+
+/* TÍTULO DE CRÉDITOS */
+
+.footer-wiki h3 {
+  color: #b7ffe1;
+  font-family: 'Oxanium', sans-serif;
+  font-size: 1.2rem;
+  margin: 0 0 18px;
+}
+
+/* ========================================
+   DISTRIBUCIÓN DE CRÉDITOS + MATEO
+======================================== */
+
+.footer-contenedor-creditos {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+/* CONTENEDOR DE INTEGRANTES */
+
+.footer-creditos {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 15px;
+
+  flex: 1;
+  min-width: 0;
+}
+
+/* TARJETA DE CADA INTEGRANTE */
+
+.footer-integrante {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+  min-width: 0;
+  min-height: 95px;
+  padding: 16px;
+
+  background: rgba(39, 45, 76, 0.75);
+  border: 1px solid rgba(167, 123, 219, 0.3);
+  border-radius: 10px;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+/* EFECTO HOVER */
+
+.footer-integrante:hover {
+  background: rgba(54, 60, 98, 0.9);
+  border-color: #a77bdb;
+}
+
+/* NOMBRE DEL INTEGRANTE */
+
+.footer-integrante strong {
+  color: #ffffff;
+  font-size: 0.95rem;
+  overflow-wrap: anywhere;
+}
+
+/* PARTICIPACIÓN */
+
+.footer-integrante span {
+  color: #c8c8db;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+/* ========================================
+   MATEO CIENTÍFICO
+======================================== */
+
+.footer-mateo {
+  width: 180px;
+  max-width: 22%;
+  height: auto;
+
+  object-fit: contain;
+  flex-shrink: 0;
+
+  filter: drop-shadow(
+    0 8px 15px rgba(0, 0, 0, 0.4)
+  );
+}
+
+/* ========================================
+   DERECHOS RESERVADOS
+======================================== */
+
+.footer-copyright {
+  color: #e6e7ef;
+  font-size: 0.9rem;
+  margin: 0 0 8px;
+}
+
+.footer-academico {
+  color: #aeb3cc;
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+/* ========================================
+   RESPONSIVE - TABLETS
+======================================== */
+
+@media (max-width: 1000px) {
+  .footer-creditos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .footer-mateo {
+    width: 150px;
+    max-width: 25%;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-contenido {
+    padding: 25px 20px;
+  }
+
+  .footer-contenedor-creditos {
+    flex-direction: column-reverse;
+    gap: 15px;
+  }
+
+  .footer-creditos {
+    width: 100%;
+  }
+
+  .footer-mateo {
+    width: 145px;
+    max-width: 50%;
+  }
+
+  .footer-wiki h2 {
+    font-size: 1.35rem;
+  }
+}
+
+/* ========================================
+   RESPONSIVE - CELULARES
+======================================== */
+
+@media (max-width: 480px) {
+  .footer-wiki {
+    width: 94%;
+  }
+
+  .footer-contenido {
+    padding: 20px 15px;
+  }
+
+  .footer-creditos {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-integrante {
+    min-height: 80px;
+  }
+
+  .footer-wiki h2 {
+    font-size: 1.2rem;
+  }
+
+  .footer-wiki h3 {
+    font-size: 1.05rem;
+  }
+}
+
+
+/* ========================================
+   TARJETAS DE LOS INTEGRANTES
+======================================== */
+
+.footer-creditos {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 15px;
+}
+
+/* Cada integrante */
+.footer-integrante {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+  min-height: 95px;
+  padding: 16px;
+
+  background: rgba(39, 45, 76, 0.75);
+  border: 1px solid rgba(167, 123, 219, 0.3);
+  border-radius: 10px;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+/* Efecto al pasar el cursor */
+.footer-integrante:hover {
+  background: rgba(54, 60, 98, 0.9);
+  border-color: #a77bdb;
+}
+
+/* Nombre */
+.footer-integrante strong {
+  color: #ffffff;
+  font-size: 0.95rem;
+}
+
+/* Participación */
+.footer-integrante span {
+  color: #c8c8db;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+/* ========================================
+   DERECHOS RESERVADOS
+======================================== */
+
+.footer-copyright {
+  color: #e6e7ef;
+  font-size: 0.9rem;
+  margin: 0 0 8px;
+}
+
+.footer-academico {
+  color: #aeb3cc;
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+/* ========================================
+   RESPONSIVE - TABLETS
+======================================== */
+
+@media (max-width: 900px) {
+  .footer-creditos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-contenido {
+    padding: 25px 20px;
+  }
+
+  .footer-wiki h2 {
+    font-size: 1.35rem;
+  }
+}
+
+/* ========================================
+   RESPONSIVE - CELULARES
+======================================== */
+
+@media (max-width: 480px) {
+  .footer-creditos {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-wiki {
+    width: 94%;
+  }
+
+  .footer-contenido {
+    padding: 20px 15px;
+  }
+
+  .footer-integrante {
+    min-height: 80px;
+  }
+
+  .footer-wiki h2 {
+    font-size: 1.2rem;
+  }
+
+  .footer-wiki h3 {
+    font-size: 1.05rem;
+  }
+}
+
+
+/* ========================================
+   TIPOGRAFÍAS DE LA WIKI
+======================================== */
+
+.panel-wiki h1,
+.panel-wiki h2,
+.dialogo-mateo h3 {
+  font-family: 'Oxanium', sans-serif;
+  letter-spacing: 0.5px;
+}
+
+/* ========================================
+   BIENVENIDA CON MATEO
+======================================== */
+
+.bienvenida-mateo {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin-top: 25px;
+}
+
+/* Imagen pequeña de Mateo */
+.mateo-chibi {
+  width: 155px;
+  max-width: 35%;
+  height: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+
+  filter: drop-shadow(
+    0 6px 12px rgba(0, 0, 0, 0.35)
+  );
+}
+
+/* Cuadro de diálogo */
+.dialogo-mateo {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+
+  background: rgba(39, 45, 76, 0.88);
+  border: 1px solid #a77bdb;
+  border-radius: 12px;
+
+  padding: 22px;
+}
+
+.dialogo-mateo h3 {
+  color: #b7ffe1;
+  font-size: 1.1rem;
+  margin: 0 0 10px;
+}
+
+.dialogo-mateo p {
+  color: #e6e7ef;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Punta del globo de diálogo */
+.dialogo-mateo::before {
+  content: '';
+  position: absolute;
+  left: -9px;
+  top: 45%;
+
+  width: 16px;
+  height: 16px;
+
+  background: #272d4c;
+  border-left: 1px solid #a77bdb;
+  border-bottom: 1px solid #a77bdb;
+
+  transform: rotate(45deg);
+}
+
+/* ========================================
+   ETIQUETAS DE GÉNERO
+======================================== */
+
+.etiquetas-genero {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  margin: 18px 0 22px;
+}
+
+.etiquetas-genero span {
+  background: rgba(43, 69, 76, 0.85);
+  color: #b7ffe1;
+
+  border: 1px solid #5dc4ae;
+  border-radius: 20px;
+
+  padding: 8px 15px;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 600px) {
+  .bienvenida-mateo {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .mateo-chibi {
+    width: 130px;
+    max-width: 60%;
+  }
+
+  .dialogo-mateo {
+    width: 100%;
+    padding: 18px;
+  }
+
+  .dialogo-mateo::before {
+    left: calc(50% - 8px);
+    top: -9px;
+
+    transform: rotate(135deg);
+  }
+}
+
+/* Nave de Historia */
+.imagen-nave {
+  width: 170px;
+  max-width: 35%;
+}
+
+/* Zombie de Género: más grande */
+.imagen-zombie {
+  width: 235px;
+  max-width: 40%;
+}
+
+/* Adaptación a celulares */
+@media (max-width: 600px) {
+  .imagen-nave {
+    width: 150px;
+    max-width: 70%;
+  }
+
+  .imagen-zombie {
+    width: 190px;
+    max-width: 75%;
+  }
+}
+
+
+/* ========================================
+   FOOTER - MATEO CIENTÍFICO
+======================================== */
+
+.footer-contenedor-creditos {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+/* Las tarjetas ocupan el espacio disponible */
+.footer-contenedor-creditos .footer-creditos {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Ilustración de Mateo */
+.footer-mateo {
+  width: 180px;
+  max-width: 22%;
+  height: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+
+  filter: drop-shadow(
+    0 8px 15px rgba(0, 0, 0, 0.4)
+  );
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-contenedor-creditos {
+    flex-direction: column-reverse;
+    gap: 15px;
+  }
+
+  .footer-contenedor-creditos .footer-creditos {
+    width: 100%;
+  }
+
+  .footer-mateo {
+    width: 145px;
+    max-width: 50%;
+  }
+}
+
+.sidebar-wiki nav a.enlace-activo {
+  background: rgba(34, 99, 86, 0.85);
+  border: 1px solid #b7ffe1;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+
+/* ========================================
+   PÁGINA DE PERSONAJES
+======================================== */
+
+.titulo-grupo-personajes {
+  font-family: 'Oxanium', sans-serif;
+  color: #b7ffe1;
+  font-size: 1.5rem;
+
+  margin: 35px 0 20px;
+  padding: 12px 18px;
+
+  background: rgba(18, 22, 40, 0.9);
+  border-left: 5px solid #a77bdb;
+  border-radius: 6px;
+}
+
+/* Encabezado */
+
+.encabezado-personaje {
+  margin-bottom: 22px;
+}
+
+.encabezado-personaje h2 {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.categoria-personaje {
+  display: inline-block;
+  color: #d8c3ff;
+  background: rgba(94, 64, 136, 0.45);
+
+  padding: 5px 12px;
+  border-radius: 20px;
+
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+/* Imagen + información */
+
+.cuerpo-personaje {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.personaje-invertido {
+  flex-direction: row-reverse;
+}
+
+.imagen-personaje {
+  width: 210px;
+  min-width: 0;
+  flex-shrink: 0;
+}
+
+.imagen-personaje img {
+  display: block;
+  width: 100%;
+  height: auto;
+
+  object-fit: contain;
+
+  filter: drop-shadow(
+    0 8px 15px rgba(0, 0, 0, 0.35)
+  );
+}
+
+/* Marcador para imágenes pendientes */
+
+.personaje-pendiente {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  min-height: 210px;
+  padding: 18px;
+
+  background: rgba(39, 45, 76, 0.65);
+  border: 2px dashed rgba(167, 123, 219, 0.6);
+  border-radius: 12px;
+}
+
+.personaje-pendiente span {
+  color: #c8c8db;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+/* Descripciones */
+
+.informacion-personaje {
+  flex: 1;
+  min-width: 0;
+}
+
+.informacion-personaje p {
+  margin: 0 0 15px;
+  color: #e6e7ef;
+  line-height: 1.7;
+}
+
+/* Etiquetas */
+
+.etiquetas-personaje {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.etiquetas-personaje span {
+  background: rgba(43, 69, 76, 0.85);
+  color: #b7ffe1;
+
+  border: 1px solid #5dc4ae;
+  border-radius: 20px;
+
+  padding: 7px 12px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 900px) {
+  .cuerpo-personaje,
+  .personaje-invertido {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .imagen-personaje {
+    width: min(200px, 75%);
+  }
+
+  .informacion-personaje {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .titulo-grupo-personajes {
+    font-size: 1.2rem;
+  }
+
+  .imagen-personaje {
+    width: min(170px, 80%);
+  }
+
+  .personaje-pendiente {
+    min-height: 170px;
+  }
+}
+
+
+/* ========================================
+   PERSONAJES - AJUSTES DE ILUSTRACIONES
+======================================== */
+
+.pagina-personajes .imagen-personaje {
+  width: 230px;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagina-personajes .imagen-personaje img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 320px;
+  object-fit: contain;
+
+  filter: drop-shadow(
+    0 8px 15px rgba(0, 0, 0, 0.4)
+  );
+}
+
+/* Maniquí de entrenamiento */
+#maniqui .imagen-personaje img {
+  max-height: 300px;
+}
+
+/* Recolector: imagen con mayor presencia */
+#recolector .imagen-personaje {
+  width: 270px;
+}
+
+#recolector .imagen-personaje img {
+  max-height: 370px;
+}
+
+/* Adaptación a pantallas pequeñas */
+@media (max-width: 900px) {
+  .pagina-personajes .imagen-personaje,
+  #recolector .imagen-personaje {
+    width: min(220px, 80%);
+  }
+
+  .pagina-personajes .imagen-personaje img,
+  #recolector .imagen-personaje img {
+    max-height: 300px;
+  }
+}
+
+
+/* ========================================
+   NIVELES - ESPERANZA EN EL CIELO
+======================================== */
+
+.ficha-nivel {
+  border-color: var(--nivel-color);
+  border-left-width: 5px;
+}
+
+/* ENCABEZADO */
+
+.nivel-encabezado {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.nivel-numero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 72px;
+  min-height: 72px;
+  flex-shrink: 0;
+
+  background: rgba(39, 45, 76, 0.9);
+  border: 2px solid var(--nivel-color);
+  border-radius: 12px;
+
+  color: var(--nivel-color);
+  font-family: 'Oxanium', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+.nivel-tipo {
+  color: var(--nivel-color);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.nivel-encabezado h2 {
+  margin: 6px 0 0;
+  color: #ffffff;
+}
+
+/* IMAGEN Y TEXTO */
+
+.nivel-cuerpo {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin-bottom: 28px;
+}
+
+.nivel-invertido {
+  flex-direction: row-reverse;
+}
+
+.nivel-imagen {
+  width: 38%;
+  flex-shrink: 0;
+  min-width: 0;
+}
+
+.nivel-imagen img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border: 2px solid var(--nivel-color);
+  border-radius: 12px;
+}
+
+/* ESPACIO PARA IMAGEN FUTURA */
+
+.nivel-imagen-pendiente {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  padding: 15px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(39, 45, 76, 0.95),
+    rgba(18, 22, 40, 0.95)
+  );
+
+  border: 2px dashed var(--nivel-color);
+  border-radius: 12px;
+  text-align: center;
+}
+
+.nivel-imagen-pendiente span {
+  color: var(--nivel-color);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.nivel-imagen-pendiente strong {
+  color: #ffffff;
+  font-family: 'Oxanium', sans-serif;
+}
+
+.nivel-imagen-pendiente small {
+  color: #c8c8db;
+}
+
+.nivel-informacion {
+  flex: 1;
+  min-width: 0;
+}
+
+.nivel-informacion p {
+  margin: 0 0 16px;
+  line-height: 1.7;
+}
+
+/* APARTADOS INFORMATIVOS */
+
+.nivel-apartado {
+  margin-top: 20px;
+  padding: 20px;
+
+  background: rgba(39, 45, 76, 0.55);
+  border-left: 3px solid var(--nivel-color);
+  border-radius: 8px;
+}
+
+.nivel-apartado h3 {
+  font-family: 'Oxanium', sans-serif;
+  color: var(--nivel-color);
+  font-size: 1.05rem;
+  margin: 0 0 12px;
+}
+
+.nivel-apartado p {
+  margin: 0;
+}
+
+/* LISTA DE ELEMENTOS */
+
+.nivel-elementos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.nivel-elementos li {
+  padding: 8px 12px;
+
+  background: rgba(18, 22, 40, 0.9);
+  border: 1px solid var(--nivel-color);
+  border-radius: 20px;
+
+  color: #e6e7ef;
+  font-size: 0.85rem;
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 900px) {
+  .nivel-cuerpo,
+  .nivel-invertido {
+    flex-direction: column;
+  }
+
+  .nivel-imagen {
+    width: min(100%, 450px);
+  }
+
+  .nivel-informacion {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .nivel-encabezado {
+    gap: 12px;
+  }
+
+  .nivel-numero {
+    width: 58px;
+    min-height: 58px;
+    font-size: 0.8rem;
+  }
+
+  .nivel-encabezado h2 {
+    font-size: 1.3rem;
+  }
+
+  .nivel-apartado {
+    padding: 15px;
+  }
+}
+
+
+/* ========================================
+   OBJETOS - ESPERANZA EN EL CIELO
+======================================== */
+
+/* TÍTULOS DE LAS CATEGORÍAS */
+
+.titulo-grupo-objetos {
+  font-family: 'Oxanium', sans-serif;
+  color: #b7ffe1;
+  font-size: 1.5rem;
+
+  margin: 35px 0 20px;
+  padding: 12px 18px;
+
+  background: rgba(18, 22, 40, 0.9);
+  border-left: 5px solid #a77bdb;
+  border-radius: 6px;
+}
+
+/* FICHA DE OBJETO */
+
+.ficha-objeto {
+  border-left: 5px solid var(--objeto-color);
+}
+
+/* ENCABEZADO */
+
+.objeto-encabezado {
+  margin-bottom: 25px;
+}
+
+.objeto-categoria {
+  display: inline-block;
+
+  color: var(--objeto-color);
+  background: rgba(39, 45, 76, 0.9);
+
+  border: 1px solid var(--objeto-color);
+  border-radius: 20px;
+
+  padding: 6px 12px;
+
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.objeto-encabezado h2 {
+  color: #ffffff;
+  margin: 12px 0 0;
+}
+
+/* ========================================
+   IMAGEN Y DESCRIPCIÓN
+======================================== */
+
+.objeto-cuerpo {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin-bottom: 25px;
+}
+
+.objeto-invertido {
+  flex-direction: row-reverse;
+}
+
+/* CONTENEDOR DE IMAGEN */
+
+.objeto-imagen {
+  width: 220px;
+  flex-shrink: 0;
+  min-width: 0;
+}
+
+.objeto-imagen img {
+  display: block;
+
+  width: 100%;
+  max-height: 250px;
+  height: auto;
+
+  object-fit: contain;
+
+  filter: drop-shadow(
+    0 8px 15px rgba(0, 0, 0, 0.4)
+  );
+}
+
+/* IMAGEN PROVISIONAL */
+
+.objeto-imagen-pendiente {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  min-height: 210px;
+  padding: 18px;
+
+  background: rgba(39, 45, 76, 0.65);
+  border: 2px dashed var(--objeto-color);
+  border-radius: 12px;
+
+  text-align: center;
+}
+
+.objeto-imagen-pendiente span {
+  color: var(--objeto-color);
+  font-size: 0.8rem;
+}
+
+.objeto-imagen-pendiente strong {
+  color: #ffffff;
+  font-family: 'Oxanium', sans-serif;
+}
+
+.objeto-imagen-pendiente small {
+  color: #c8c8db;
+}
+
+/* ========================================
+   INFORMACIÓN DEL OBJETO
+======================================== */
+
+.objeto-informacion {
+  flex: 1;
+  min-width: 0;
+}
+
+.objeto-informacion h3 {
+  font-family: 'Oxanium', sans-serif;
+  color: var(--objeto-color);
+
+  font-size: 1.05rem;
+  margin: 20px 0 10px;
+}
+
+.objeto-informacion p {
+  color: #e6e7ef;
+  line-height: 1.7;
+  margin: 0 0 14px;
+}
+
+/* ========================================
+   IMPORTANCIA DEL OBJETO
+======================================== */
+
+.objeto-apartado {
+  padding: 20px;
+  margin-top: 20px;
+
+  background: rgba(39, 45, 76, 0.55);
+  border-left: 3px solid var(--objeto-color);
+  border-radius: 8px;
+}
+
+.objeto-apartado h3 {
+  font-family: 'Oxanium', sans-serif;
+  color: var(--objeto-color);
+
+  font-size: 1.05rem;
+  margin: 0 0 12px;
+}
+
+.objeto-apartado p {
+  margin: 0;
+}
+
+/* ========================================
+   ETIQUETAS
+======================================== */
+
+.etiquetas-objeto {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  margin-top: 20px;
+}
+
+.etiquetas-objeto span {
+  background: rgba(18, 22, 40, 0.9);
+  color: #e6e7ef;
+
+  border: 1px solid var(--objeto-color);
+  border-radius: 20px;
+
+  padding: 8px 12px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+/* ========================================
+   VARIANTES DE GEMAS
+======================================== */
+
+.variantes-gemas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+
+  margin: 15px 0;
+}
+
+.variantes-gemas span {
+  padding: 9px 16px;
+
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+
+  background: rgba(18, 22, 40, 0.9);
+}
+
+.gema-azul {
+  color: #86cfff;
+  border: 1px solid #86cfff;
+}
+
+.gema-verde {
+  color: #7ce5bd;
+  border: 1px solid #7ce5bd;
+}
+
+.gema-roja {
+  color: #ff8496;
+  border: 1px solid #ff8496;
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 900px) {
+  .objeto-cuerpo,
+  .objeto-invertido {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .objeto-imagen {
+    width: min(220px, 80%);
+  }
+
+  .objeto-informacion {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .titulo-grupo-objetos {
+    font-size: 1.2rem;
+  }
+
+  .objeto-imagen {
+    width: min(190px, 85%);
+  }
+
+  .objeto-apartado {
+    padding: 15px;
+  }
+
+  .variantes-gemas {
+    gap: 8px;
+  }
+}
+
+
+/* ========================================
+   MECÁNICAS - ESPERANZA EN EL CIELO
+======================================== */
+
+.pagina-mecanicas .panel-wiki {
+  margin-bottom: 28px;
+}
+
+/* INSTRUCCIONES */
+
+.mecanicas-pasos {
+  padding-left: 26px;
+  margin: 24px 0 0;
+}
+
+.mecanicas-pasos li {
+  color: #e6e7ef;
+  line-height: 1.7;
+  margin-bottom: 14px;
+  padding-left: 8px;
+}
+
+.mecanicas-pasos li::marker {
+  color: #b7ffe1;
+  font-weight: 700;
+}
+
+/* AVISO DE CONTROLES PROVISIONALES */
+
+.mecanicas-aviso {
+  margin: 20px 0;
+  padding: 14px 18px;
+
+  color: #e5d5ff;
+  background: rgba(94, 64, 136, 0.3);
+  border-left: 4px solid #a77bdb;
+  border-radius: 8px;
+}
+
+/* TABLA DE CONTROLES */
+
+.mecanicas-tabla-controles {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.mecanicas-fila-control {
+  display: grid;
+  grid-template-columns: 190px minmax(0, 1fr);
+  align-items: center;
+  gap: 20px;
+
+  padding: 18px;
+  background: rgba(39, 45, 76, 0.65);
+
+  border: 1px solid rgba(167, 123, 219, 0.45);
+  border-radius: 12px;
+}
+
+.mecanicas-teclas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.mecanicas-tecla {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  min-width: 47px;
+  min-height: 45px;
+  padding: 9px 12px;
+
+  font-family: 'Oxanium', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 800;
+
+  color: #b7ffe1;
+  background: #202940;
+
+  border: 2px solid #83d7ba;
+  border-bottom-width: 5px;
+  border-radius: 8px;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.mecanicas-control-texto h3 {
+  color: #b7ffe1;
+  font-family: 'Oxanium', sans-serif;
+  font-size: 1.05rem;
+  margin: 0 0 7px;
+}
+
+.mecanicas-control-texto p {
+  margin: 0;
+  color: #e6e7ef;
+  line-height: 1.6;
+}
+
+/* IMAGEN DE CONTROLES */
+
+.mecanicas-imagen-controles {
+  display: flex;
+  justify-content: center;
+
+  margin-top: 22px;
+  padding: 12px;
+
+  background: rgba(12, 16, 30, 0.65);
+  border: 2px solid #a77bdb;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.mecanicas-imagen-controles img {
+  display: block;
+  width: 100%;
+  max-width: 850px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.mecanicas-pie-imagen {
+  text-align: center;
+  color: #d7c5f4;
+  font-size: 0.85rem;
+  margin-top: 12px;
+}
+
+/* MECÁNICAS PRINCIPALES */
+
+.mecanicas-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.mecanicas-tarjeta {
+  padding: 22px;
+  background: rgba(39, 45, 76, 0.65);
+  border: 1px solid rgba(167, 123, 219, 0.6);
+  border-radius: 12px;
+}
+
+.mecanicas-numero {
+  display: inline-block;
+  margin-bottom: 14px;
+
+  color: #b7ffe1;
+  font-family: 'Oxanium', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.mecanicas-tarjeta h3 {
+  font-family: 'Oxanium', sans-serif;
+  color: #ffffff;
+  margin: 0 0 12px;
+}
+
+.mecanicas-tarjeta p {
+  color: #e6e7ef;
+  margin: 0;
+  line-height: 1.7;
+}
+
+/* CURACIÓN Y DAÑO */
+
+.mecanicas-sistemas {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.mecanicas-sistema {
+  padding: 22px;
+  background: rgba(39, 45, 76, 0.65);
+  border-radius: 12px;
+  border-left: 4px solid;
+}
+
+.mecanicas-sistema.curacion {
+  border-color: #7ce5bd;
+}
+
+.mecanicas-sistema.dano {
+  border-color: #ff637c;
+}
+
+.mecanicas-sistema h3 {
+  font-family: 'Oxanium', sans-serif;
+  margin: 0 0 12px;
+  color: #ffffff;
+}
+
+.mecanicas-sistema p {
+  margin: 0;
+  line-height: 1.7;
+}
+
+/* HABILIDADES */
+
+.mecanicas-habilidades {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.mecanicas-habilidad {
+  padding: 20px;
+
+  background: rgba(39, 45, 76, 0.65);
+  border-top: 4px solid var(--habilidad-color);
+  border-radius: 10px;
+}
+
+.mecanicas-habilidad h3 {
+  font-family: 'Oxanium', sans-serif;
+  color: var(--habilidad-color);
+  margin: 0 0 12px;
+}
+
+.mecanicas-habilidad strong {
+  display: block;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+
+.mecanicas-habilidad p {
+  margin: 0;
+  color: #e6e7ef;
+  line-height: 1.6;
+}
+
+.mecanicas-nota {
+  margin-top: 22px;
+  color: #d7c5f4;
+  font-size: 0.9rem;
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 900px) {
+  .mecanicas-habilidades {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 650px) {
+  .mecanicas-fila-control {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .mecanicas-grid,
+  .mecanicas-sistemas {
+    grid-template-columns: 1fr;
+  }
+
+  .mecanicas-tarjeta,
+  .mecanicas-sistema {
+    padding: 18px;
+  }
+
+  .mecanicas-imagen-controles {
+    padding: 6px;
+  }
+}
+
+
+/* ========================================
+   MECÁNICAS - MATEOS CHIBI
+======================================== */
+
+/* CONTENEDOR DE TEXTO E IMAGEN */
+
+.mecanicas-con-mateo {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 210px;
+  align-items: center;
+  gap: 25px;
+  margin-top: 20px;
+}
+
+/* ILUSTRACIONES DE MATEO */
+
+.mecanicas-mateo-chibi {
+  display: block;
+  width: 100%;
+  max-width: 210px;
+  height: auto;
+
+  object-fit: contain;
+  justify-self: center;
+
+  filter: drop-shadow(
+    0 8px 14px rgba(0, 0, 0, 0.35)
+  );
+
+}
+
+
+/* AJUSTES DE CONTENIDO */
+
+.mecanicas-con-mateo .mecanicas-pasos {
+  margin-top: 0;
+  min-width: 0;
+}
+
+.mecanicas-con-mateo .mecanicas-grid {
+  margin-top: 0;
+  min-width: 0;
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 1000px) {
+  .mecanicas-con-mateo {
+    grid-template-columns: minmax(0, 1fr) 160px;
     gap: 18px;
   }
-}
 
-#next-steps {
-  display: flex;
-  border-top: 1px solid var(--border);
-  text-align: left;
-
-  & > div {
-    flex: 1 1 0;
-    padding: 32px;
-    @media (max-width: 1024px) {
-      padding: 24px 20px;
-    }
-  }
-
-  .icon {
-    margin-bottom: 16px;
-    width: 22px;
-    height: 22px;
-  }
-
-  @media (max-width: 1024px) {
-    flex-direction: column;
-    text-align: center;
+  .mecanicas-mateo-chibi {
+    max-width: 160px;
   }
 }
 
-#docs {
-  border-right: 1px solid var(--border);
-
-  @media (max-width: 1024px) {
-    border-right: none;
-    border-bottom: 1px solid var(--border);
-  }
-}
-
-#next-steps ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  gap: 8px;
-  margin: 32px 0 0;
-
-  .logo {
-    height: 18px;
+@media (max-width: 700px) {
+  .mecanicas-con-mateo {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
 
-  a {
-    color: var(--text-h);
-    font-size: 16px;
-    border-radius: 6px;
-    background: var(--social-bg);
-    display: flex;
-    padding: 6px 12px;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    transition: box-shadow 0.3s;
-
-    &:hover {
-      box-shadow: var(--shadow);
-    }
-    .button-icon {
-      height: 18px;
-      width: 18px;
-    }
-  }
-
-  @media (max-width: 1024px) {
-    margin-top: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    li {
-      flex: 1 1 calc(50% - 8px);
-    }
-
-    a {
-      width: 100%;
-      justify-content: center;
-      box-sizing: border-box;
-    }
-  }
-}
-
-#spacer {
-  height: 88px;
-  border-top: 1px solid var(--border);
-  @media (max-width: 1024px) {
-    height: 48px;
-  }
-}
-
-.ticks {
-  position: relative;
-  width: 100%;
-
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    top: -4.5px;
-    border: 5px solid transparent;
-  }
-
-  &::before {
-    left: 0;
-    border-left-color: var(--border);
-  }
-  &::after {
-    right: 0;
-    border-right-color: var(--border);
+  .mecanicas-mateo-chibi {
+    max-width: 190px;
   }
 }
