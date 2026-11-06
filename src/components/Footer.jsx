@@ -13,7 +13,7 @@ const integrantes = [
     rol: 'Desarrollador del videojuego y móvil'
   },
   {
-    nombre: 'Flores Luna Diego Sebstian',
+    nombre: 'Flores Luna Diego Sebastian',
     rol: 'Documentador del proyecto'
   },
   {
@@ -21,7 +21,7 @@ const integrantes = [
     rol: 'Product Owner'
   },
   {
-    nombre: 'Santana Fernando Fausto',
+    nombre: 'Santana Fernando Frausto',
     rol: 'Desarrollador del videojuego'
   }
 ]
