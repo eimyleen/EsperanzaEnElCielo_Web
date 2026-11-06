@@ -3,6 +3,8 @@
    FOOTER - ESPERANZA EN EL CIELO
 ======================================== */
 
+import ImagenWiki from './ImagenWiki'
+
 const integrantes = [
   {
     nombre: 'Aranda Martínez Eimy Elieen',
@@ -60,7 +62,7 @@ function Footer() {
           </div>
 
           {/* MATEO CIENTÍFICO */}
-          <img
+          <ImagenWiki
             src="/images/mateo-creditos.png"
             alt="Doctor Mateo con bata de científico, lápiz y libreta"
             className="footer-mateo"

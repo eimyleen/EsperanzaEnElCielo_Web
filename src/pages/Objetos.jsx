@@ -3,6 +3,8 @@
    OBJETOS - ESPERANZA EN EL CIELO
 ======================================== */
 
+import ImagenWiki from '../components/ImagenWiki'
+
 const objetos = [
   /* =====================================
      EQUIPAMIENTO
@@ -225,7 +227,7 @@ function FichaObjeto({ objeto }) {
 
         {/* ILUSTRACIÓN */}
         <div className="objeto-imagen">
-          <img
+          <ImagenWiki
             src={objeto.imagen}
             alt={`Ilustración de ${objeto.nombre}`}
             loading="lazy"

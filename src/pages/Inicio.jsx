@@ -1,4 +1,6 @@
 
+import ImagenWiki from '../components/ImagenWiki'
+
 function Inicio() {
   return (
     <div id="inicio" className="pagina-inicio">
@@ -11,7 +13,7 @@ function Inicio() {
         <h1>¡Bienvenido a la Wiki!</h1>
 
         <div className="bienvenida-mateo">
-          <img
+          <ImagenWiki
             src="/images/mateo-bienvenida.png"
             alt="Doctor Mateo saludando"
             className="mateo-chibi"
@@ -55,7 +57,6 @@ function Inicio() {
         </p>
       </section>
 
-      
       {/* =====================================
           SECCIÓN 3: HISTORIA
       ===================================== */}
@@ -121,7 +122,7 @@ function Inicio() {
             </p>
           </div>
 
-          <img
+          <ImagenWiki
             src="/images/nave-historia.png"
             alt="Nave espacial de evacuación"
             className="imagen-info imagen-nave"
@@ -129,7 +130,6 @@ function Inicio() {
 
         </div>
       </section>
-
 
       {/* =====================================
           SECCIÓN 4: OBJETIVO
@@ -163,7 +163,7 @@ function Inicio() {
         <div className="bloque-info bloque-info-izquierda">
 
           {/* Zombie grande a la izquierda */}
-          <img
+          <ImagenWiki
             src="/images/zombie-genero.png"
             alt="Zombie chibi del videojuego"
             className="imagen-info imagen-zombie"

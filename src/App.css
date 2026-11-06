@@ -1990,3 +1990,80 @@
     max-width: 190px;
   }
 }
+
+
+/* ========================================
+   PWA - IMÁGENES SIN CONEXIÓN
+======================================== */
+
+.imagen-no-disponible {
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-width: 0;
+  min-height: 150px;
+  gap: 10px;
+  padding: 20px;
+
+  background: rgba(22, 28, 48, 0.9);
+
+  border: 2px dashed #a77bdb;
+  border-radius: 12px;
+
+  text-align: center;
+}
+
+.imagen-no-disponible-icono {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 38px;
+  height: 38px;
+
+  color: #b7ffe1;
+  border: 2px solid #a77bdb;
+  border-radius: 50%;
+
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.imagen-no-disponible strong {
+  color: #b7ffe1;
+  font-family: 'Oxanium', sans-serif;
+
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.imagen-no-disponible > span:last-child {
+  color: #c8c8db;
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+/* MATEO CHIBI - SECCIÓN MECÁNICAS */
+
+.imagen-no-disponible.mecanicas-mateo-chibi {
+  width: 100%;
+  max-width: 210px;
+  height: auto;
+  min-height: 180px;
+  transform: none;
+  transition: none;
+}
+
+/* PANTALLAS PEQUEÑAS */
+
+@media (max-width: 700px) {
+  .imagen-no-disponible {
+    max-width: 100%;
+    padding: 15px;
+  }
+}

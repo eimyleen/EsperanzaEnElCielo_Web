@@ -3,6 +3,8 @@
    PERSONAJES - ESPERANZA EN EL CIELO
 ======================================== */
 
+import ImagenWiki from '../components/ImagenWiki'
+
 const personajes = [
   /* =====================================
      PERSONAJES PRINCIPALES
@@ -194,7 +196,7 @@ function FichaPersonaje({ personaje, indice }) {
 
         {/* ILUSTRACIÓN */}
         <div className="imagen-personaje">
-          <img
+          <ImagenWiki
             src={personaje.imagen}
             alt={`Ilustración de ${personaje.nombre}`}
             loading="lazy"

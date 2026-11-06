@@ -3,6 +3,8 @@
    NIVELES - ESPERANZA EN EL CIELO
 ======================================== */
 
+import ImagenWiki from '../components/ImagenWiki'
+
 const niveles = [
   /* =====================================
      NIVEL 1 - LABORATORIO
@@ -176,7 +178,7 @@ function FichaNivel({ nivel, indice }) {
 
         {/* IMAGEN DEL NIVEL */}
         <div className="nivel-imagen">
-          <img
+          <ImagenWiki
             src={nivel.imagen}
             alt={`Escenario de ${nivel.nombre}`}
             loading="lazy"

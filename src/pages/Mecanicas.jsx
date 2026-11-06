@@ -1,7 +1,8 @@
-
 /* ========================================
    MECÁNICAS - ESPERANZA EN EL CIELO
 ======================================== */
+
+import ImagenWiki from '../components/ImagenWiki'
 
 /* ========================================
    CONTROLES PROVISIONALES
@@ -210,7 +211,7 @@ function Mecanicas() {
           </ol>
 
           {/* MATEO PENSATIVO */}
-          <img
+          <ImagenWiki
             src="/images/mateo-pregunta.png"
             alt="Doctor Mateo chibi con un signo de interrogación"
             className="mecanicas-mateo-chibi"
@@ -264,7 +265,7 @@ function Mecanicas() {
         </p>
 
         <div className="mecanicas-imagen-controles">
-          <img
+          <ImagenWiki
             src="/images/controles-mecanicas.png"
             alt="Guía visual de los controles provisionales de Esperanza en el Cielo"
             loading="lazy"
@@ -315,7 +316,7 @@ function Mecanicas() {
           </div>
 
           {/* MATEO DISPARANDO */}
-          <img
+          <ImagenWiki
             src="/images/mateo-disparando.png"
             alt="Doctor Mateo chibi disparando su pistola de pulso"
             className="mecanicas-mateo-chibi"
