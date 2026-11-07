@@ -2296,3 +2296,250 @@
     height: 19px;
   }
 }
+
+
+/* ========================================
+   BOTÓN DE INSTALACIÓN PWA
+   BIENVENIDA DEL DOCTOR MATEO
+======================================== */
+
+.pwa-instalacion {
+  margin-top: 18px;
+  width: 100%;
+}
+
+/* BOTÓN DESCARGAR APP */
+
+.btn-instalar-pwa {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+
+  padding: 13px 22px;
+
+  background: #65e6aa;
+  color: #121628;
+
+  border: 2px solid #65e6aa;
+  border-radius: 10px;
+
+  font-family: 'Oxanium', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow: 0 4px 14px rgba(101, 230, 170, 0.15);
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+/* EFECTO HOVER */
+
+.btn-instalar-pwa:hover:not(:disabled) {
+  background: #b7ffe1;
+  border-color: #b7ffe1;
+  color: #121628;
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 6px 20px rgba(101, 230, 170, 0.3);
+}
+
+/* AL PRESIONAR EL BOTÓN */
+
+.btn-instalar-pwa:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+/* NAVEGACIÓN POR TECLADO */
+
+.btn-instalar-pwa:focus-visible {
+  outline: 3px solid #a77bdb;
+  outline-offset: 4px;
+}
+
+/* BOTÓN DESHABILITADO */
+
+.btn-instalar-pwa:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+/* APLICACIÓN INSTALADA */
+
+.pwa-ya-instalada {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 12px 18px;
+
+  background: rgba(101, 230, 170, 0.12);
+  border: 1px solid rgba(101, 230, 170, 0.5);
+  border-radius: 10px;
+
+  color: #b7ffe1;
+
+  font-family: 'Oxanium', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+/* MENSAJE CON INSTRUCCIONES */
+
+.pwa-mensaje {
+  margin: 13px 0 0;
+  padding: 12px 15px;
+
+  background: rgba(167, 123, 219, 0.12);
+  border-left: 3px solid #a77bdb;
+  border-radius: 8px;
+
+  color: #e1e1ed;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+
+/* ========================================
+   BOTÓN DE INSTALACIÓN PWA
+   BIENVENIDA DEL DOCTOR MATEO
+======================================== */
+
+.pwa-instalacion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 18px;
+  width: 100%;
+}
+
+/* BOTÓN DESCARGAR APP */
+
+.btn-instalar-pwa {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+
+  padding: 13px 22px;
+
+  background: #65e6aa;
+  color: #121628;
+
+  border: 2px solid #65e6aa;
+  border-radius: 10px;
+
+  font-family: 'Oxanium', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow: 0 4px 14px rgba(101, 230, 170, 0.15);
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+/* EFECTO HOVER */
+
+.btn-instalar-pwa:hover:not(:disabled) {
+  background: #b7ffe1;
+  border-color: #b7ffe1;
+  color: #121628;
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 6px 20px rgba(101, 230, 170, 0.3);
+}
+
+/* AL PRESIONAR EL BOTÓN */
+
+.btn-instalar-pwa:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+/* NAVEGACIÓN POR TECLADO */
+
+.btn-instalar-pwa:focus-visible {
+  outline: 3px solid #a77bdb;
+  outline-offset: 4px;
+}
+
+/* BOTÓN DESHABILITADO */
+
+.btn-instalar-pwa:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+/* APLICACIÓN INSTALADA */
+
+.pwa-ya-instalada {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 12px 18px;
+
+  background: rgba(101, 230, 170, 0.12);
+  border: 1px solid rgba(101, 230, 170, 0.5);
+  border-radius: 10px;
+
+  color: #b7ffe1;
+
+  font-family: 'Oxanium', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+/* MENSAJE CON INSTRUCCIONES */
+
+.pwa-mensaje {
+  margin: 13px 0 0;
+  padding: 12px 15px;
+
+  background: rgba(167, 123, 219, 0.12);
+  border-left: 3px solid #a77bdb;
+  border-radius: 8px;
+
+  color: #e1e1ed;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+/* ========================================
+   RESPONSIVE - BOTÓN PWA
+======================================== */
+
+@media (max-width: 600px) {
+  .pwa-instalacion {
+    margin-top: 15px;
+  }
+
+  .btn-instalar-pwa {
+    width: 100%;
+    padding: 13px 16px;
+    font-size: 0.9rem;
+  }
+
+  .pwa-mensaje {
+    font-size: 0.84rem;
+  }
+}
+
+

@@ -1,5 +1,6 @@
 
 import ImagenWiki from '../components/ImagenWiki'
+import BotonInstalarPWA from '../components/BotonInstalarPWA'
 
 /* ========================================
    REQUISITOS DEL VIDEOJUEGO
@@ -139,6 +140,7 @@ function Inicio() {
           <div className="dialogo-mateo">
             <h3>Dr. Mateo</h3>
 
+            {/* MENSAJE ORIGINAL */}
             <p>
               ¡Ah, hola! No esperaba visitas...
               Soy el doctor Mateo, y esta es la
@@ -148,6 +150,16 @@ function Inicio() {
               los lugares que tendremos que atravesar.
               ¡Espero que disfrutes tu visita!
             </p>
+
+            {/* NUEVO MENSAJE */}
+            <p>
+              También puedes instalarla en tu dispositivo
+              para acceder fácilmente.
+            </p>
+
+            {/* BOTÓN PARA INSTALAR LA WIKI */}
+            <BotonInstalarPWA />
+
           </div>
         </div>
       </section>
@@ -279,14 +291,12 @@ function Inicio() {
 
         <div className="bloque-info bloque-info-izquierda">
 
-          {/* Zombie grande a la izquierda */}
           <ImagenWiki
             src="/images/zombie-genero.png"
             alt="Zombie chibi del videojuego"
             className="imagen-info imagen-zombie"
           />
 
-          {/* Texto a la derecha */}
           <div className="texto-info">
             <div className="etiquetas-genero">
               <span>Acción</span>
