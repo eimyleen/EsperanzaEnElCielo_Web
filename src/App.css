@@ -2232,3 +2232,67 @@
     font-size: 0.84rem;
   }
 }
+
+
+/* ========================================
+   SIDEBAR - ICONOS DE NAVEGACIÓN
+======================================== */
+
+/* ACOMODAR ICONO Y TEXTO */
+
+.sidebar-wiki nav a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ESTILO DE LOS ICONOS */
+
+.sidebar-icono {
+  flex-shrink: 0;
+
+  width: 20px;
+  height: 20px;
+
+  color: #b7ffe1;
+
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+/* TEXTO DEL BOTÓN */
+
+.sidebar-texto {
+  flex: 1;
+  min-width: 0;
+
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+/* EFECTO AL PASAR EL CURSOR */
+
+.sidebar-wiki nav a:hover .sidebar-icono {
+  color: #101428;
+  transform: scale(1.1);
+}
+
+/* ICONO DE LA PESTAÑA ACTIVA */
+
+.sidebar-wiki nav a.enlace-activo .sidebar-icono {
+  color: #b7ffe1;
+}
+
+/* MANTENER LOS ICONOS ALINEADOS EN CELULARES */
+
+@media (max-width: 768px) {
+  .sidebar-wiki nav a {
+    gap: 10px;
+  }
+
+  .sidebar-icono {
+    width: 19px;
+    height: 19px;
+  }
+}
