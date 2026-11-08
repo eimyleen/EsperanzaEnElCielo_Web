@@ -6,7 +6,8 @@ import {
   Users,
   Map,
   Package,
-  Gamepad2
+  Gamepad2,
+  UsersRound
 } from 'lucide-react'
 
 /* ========================================
@@ -38,6 +39,11 @@ const enlaces = [
     nombre: 'Mecánicas',
     destino: '/mecanicas',
     icono: Gamepad2
+  },
+  {
+    nombre: 'Comunidad',
+    destino: '/comunidad',
+    icono: UsersRound
   }
 ]
 
@@ -49,12 +55,9 @@ function Sidebar() {
   return (
     <aside className="sidebar-wiki">
 
-      {/* TÍTULO DEL MENÚ */}
       <h2>Navegación</h2>
 
-      {/* BOTONES DE NAVEGACIÓN */}
       <nav aria-label="Navegación principal">
-
         {enlaces.map((enlace) => {
           const Icono = enlace.icono
 
@@ -67,7 +70,6 @@ function Sidebar() {
                 isActive ? 'enlace-activo' : ''
               }
             >
-              {/* ICONO */}
               <Icono
                 className="sidebar-icono"
                 size={20}
@@ -75,27 +77,23 @@ function Sidebar() {
                 aria-hidden="true"
               />
 
-              {/* NOMBRE DE LA PESTAÑA */}
               <span className="sidebar-texto">
                 {enlace.nombre}
               </span>
-
             </NavLink>
           )
         })}
-
       </nav>
 
-      {/* SEPARADOR */}
       <div className="sidebar-separador" />
 
-      {/* INFORMACIÓN ADICIONAL */}
       <h2>Explora la Wiki</h2>
 
       <p>
         Descubre la historia, personajes,
         niveles, objetos y mecánicas de
         Esperanza en el Cielo.
+        ¡Participa también en nuestra comunidad!
       </p>
 
     </aside>

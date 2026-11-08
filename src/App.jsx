@@ -8,6 +8,7 @@ import Personajes from './pages/Personajes'
 import Niveles from './pages/Niveles'
 import Objetos from './pages/Objetos'
 import Mecanicas from './pages/Mecanicas'
+import Comunidad from './pages/Comunidad'
 
 import './App.css'
 
@@ -39,6 +40,11 @@ function App() {
           <Route
             path="/mecanicas"
             element={<Mecanicas />}
+          />
+
+          <Route
+            path="/comunidad"
+            element={<Comunidad />}
           />
         </Routes>
       </WikiLayout>
