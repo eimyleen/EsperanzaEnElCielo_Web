@@ -3001,16 +3001,40 @@
 }
 
 
+
+
 /* ========================================
-   COMUNIDAD - CENTRAR AGRADECIMIENTO
+   COMUNIDAD - AJUSTES DE AGRADECIMIENTO
 ======================================== */
 
-.comunidad-agradecimiento-texto {
+/* Título centrado con el texto y desplazado hacia abajo */
+.pagina-comunidad .panel-wiki > h2:has(+ .comunidad-agradecimiento) {
+  text-align: center;
+  padding-left: 230px;
+  box-sizing: border-box;
+  transform: translateY(35px);
+}
+
+/* Párrafos centrados */
+.pagina-comunidad .comunidad-agradecimiento-texto {
   text-align: center;
 }
 
-.comunidad-agradecimiento-texto p {
-  text-align: center;
+/* TABLETS */
+@media (max-width: 900px) {
+  .pagina-comunidad .panel-wiki > h2:has(+ .comunidad-agradecimiento) {
+    padding-left: 170px;
+  }
 }
+
+/* CELULARES */
+@media (max-width: 600px) {
+  .pagina-comunidad .panel-wiki > h2:has(+ .comunidad-agradecimiento) {
+    padding-left: 0;
+    transform: none;
+  }
+}
+
+
 
 

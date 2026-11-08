@@ -7,7 +7,7 @@ import ImagenWiki from './ImagenWiki'
 
 const integrantes = [
   {
-    nombre: 'Aranda Martínez Eimy Elieen',
+    nombre: 'Aranda Martínez Eimy Eileen',
     rol: 'Diseñadora creativa y desarrolladora web'
   },
   {
