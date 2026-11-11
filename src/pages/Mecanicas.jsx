@@ -1,19 +1,32 @@
-/* ========================================
-   MECÁNICAS - ESPERANZA EN EL CIELO
-======================================== */
+
+import { useState } from 'react'
+
+import {
+  Keyboard,
+  Gamepad2,
+  MoveHorizontal,
+  ArrowUp,
+  Crosshair,
+  Gem,
+  ChevronsUp
+} from 'lucide-react'
 
 import ImagenWiki from '../components/ImagenWiki'
 
 /* ========================================
-   CONTROLES PROVISIONALES
+   MECÁNICAS - ESPERANZA EN EL CIELO
 ======================================== */
 
-const controles = [
+/* ========================================
+   CONTROLES DE TECLADO
+======================================== */
+
+const controlesTeclado = [
   {
-    teclas: ['A', 'D'],
-    accion: 'Caminar',
+    teclas: ['W', 'A', 'S', 'D'],
+    accion: 'Mover al personaje',
     descripcion:
-      'Permite mover a Mateo hacia la izquierda o hacia la derecha.'
+      'Permite controlar los movimientos de Mateo por los escenarios.'
   },
   {
     teclas: ['ESPACIO'],
@@ -22,16 +35,59 @@ const controles = [
       'Permite saltar para alcanzar plataformas y superar obstáculos.'
   },
   {
-    teclas: ['S'],
-    accion: 'Agacharse',
-    descripcion:
-      'Permite que Mateo se agache para adoptar una posición más baja.'
-  },
-  {
-    teclas: ['CLIC IZQ.'],
+    teclas: ['J'],
     accion: 'Disparar',
     descripcion:
       'Utiliza la pistola de pulso para atacar a los enemigos.'
+  },
+  {
+    teclas: ['K'],
+    accion: 'Activar gema',
+    descripcion:
+      'Activa la función de la gema roja o azul equipada.'
+  },
+  {
+    teclas: ['ESPACIO'],
+    accion: 'Doble salto',
+    descripcion:
+      'Con la gema verde, presiona nuevamente Espacio mientras Mateo está en el aire.'
+  }
+]
+
+/* ========================================
+   CONTROLES DE MANDO
+======================================== */
+
+const controlesMando = [
+  {
+    teclas: ['D-PAD', 'JOYSTICK'],
+    accion: 'Mover al personaje',
+    descripcion:
+      'Permite controlar los movimientos de Mateo utilizando la cruceta o el joystick.'
+  },
+  {
+    teclas: ['A'],
+    accion: 'Saltar',
+    descripcion:
+      'Permite saltar para alcanzar plataformas y superar obstáculos.'
+  },
+  {
+    teclas: ['RT'],
+    accion: 'Disparar',
+    descripcion:
+      'Utiliza la pistola de pulso para atacar a los enemigos.'
+  },
+  {
+    teclas: ['X'],
+    accion: 'Activar gema',
+    descripcion:
+      'Activa la función de la gema roja o azul equipada.'
+  },
+  {
+    teclas: ['A'],
+    accion: 'Doble salto',
+    descripcion:
+      'Con la gema verde, presiona nuevamente A mientras Mateo está en el aire.'
   }
 ]
 
@@ -44,7 +100,7 @@ const mecanicas = [
     numero: '01',
     titulo: 'Movimiento y plataformas',
     descripcion:
-      'Mateo puede caminar hacia ambos lados, saltar y agacharse. Estas acciones le permiten recorrer los escenarios, alcanzar plataformas y superar distintos obstáculos.'
+      'Mateo puede desplazarse por los escenarios y saltar para alcanzar plataformas. Con la gema verde puede realizar un segundo salto en el aire.'
   },
   {
     numero: '02',
@@ -79,9 +135,9 @@ const mecanicas = [
 const habilidades = [
   {
     nombre: 'Gema verde',
-    poder: 'Saltos impulsados',
+    poder: 'Doble salto',
     descripcion:
-      'Permite realizar saltos más altos para alcanzar lugares elevados.',
+      'Permite realizar un segundo salto mientras Mateo está en el aire. Se utiliza con Espacio en teclado o A en mando.',
     color: '#65e6aa'
   },
   {
@@ -108,7 +164,8 @@ function FichaControl({ control }) {
   return (
     <div className="mecanicas-fila-control">
 
-      {/* TECLAS */}
+      {/* TECLAS O BOTONES */}
+
       <div className="mecanicas-teclas">
         {control.teclas.map((tecla) => (
           <kbd
@@ -121,9 +178,241 @@ function FichaControl({ control }) {
       </div>
 
       {/* DESCRIPCIÓN */}
+
       <div className="mecanicas-control-texto">
         <h3>{control.accion}</h3>
         <p>{control.descripcion}</p>
+      </div>
+
+    </div>
+  )
+}
+
+/* ========================================
+   DATOS DE LA GUÍA VISUAL
+======================================== */
+
+const guiaVisual = [
+  {
+    id: 'mover',
+    titulo: 'Mover al personaje',
+    descripcion:
+      'Controla el desplazamiento de Mateo.',
+    icono: MoveHorizontal,
+    teclado: ['W', 'A', 'S', 'D'],
+    mando: ['D-PAD', 'JOYSTICK']
+  },
+  {
+    id: 'saltar',
+    titulo: 'Saltar',
+    descripcion:
+      'Salta para superar obstáculos y alcanzar plataformas.',
+    icono: ArrowUp,
+    teclado: ['ESPACIO'],
+    mando: ['A']
+  },
+  {
+    id: 'disparar',
+    titulo: 'Disparar',
+    descripcion:
+      'Dispara con la pistola de pulso.',
+    icono: Crosshair,
+    teclado: ['J'],
+    mando: ['RT']
+  },
+  {
+    id: 'gema',
+    titulo: 'Activar gema',
+    descripcion:
+      'Activa la función de la gema roja o azul.',
+    icono: Gem,
+    teclado: ['K'],
+    mando: ['X']
+  },
+  {
+    id: 'doble-salto',
+    titulo: 'Doble salto',
+    descripcion:
+      'Con la gema verde, presiona nuevamente el botón de salto mientras Mateo está en el aire.',
+    icono: ChevronsUp,
+    teclado: ['ESPACIO'],
+    mando: ['A']
+  }
+]
+
+/* ========================================
+   COMPONENTE DE GUÍA VISUAL
+======================================== */
+
+function GuiaVisualControles() {
+  const [tipoControl, setTipoControl] = useState('teclado')
+
+  return (
+    <div className="mecanicas-guia-visual">
+
+      {/* =====================================
+          SELECTOR TECLADO / MANDO
+      ===================================== */}
+
+      <div className="mecanicas-guia-selector">
+
+        <button
+          type="button"
+          className={`mecanicas-guia-tab ${
+            tipoControl === 'teclado' ? 'activo' : ''
+          }`}
+          onClick={() => setTipoControl('teclado')}
+          aria-pressed={tipoControl === 'teclado'}
+        >
+          <Keyboard size={20} />
+          Teclado
+        </button>
+
+        <button
+          type="button"
+          className={`mecanicas-guia-tab ${
+            tipoControl === 'mando' ? 'activo' : ''
+          }`}
+          onClick={() => setTipoControl('mando')}
+          aria-pressed={tipoControl === 'mando'}
+        >
+          <Gamepad2 size={20} />
+          Mando
+        </button>
+
+      </div>
+
+      {/* =====================================
+          TARJETAS HOLOGRÁFICAS
+      ===================================== */}
+
+      <div className="mecanicas-guia-grid">
+
+        {guiaVisual.map((control) => {
+
+          const Icono = control.icono
+
+          return (
+            <article
+              key={control.id}
+              className={`mecanicas-guia-tarjeta ${
+                control.id === 'doble-salto'
+                  ? 'gema-verde'
+                  : ''
+              }`}
+            >
+
+              {/* TÍTULO E ILUSTRACIÓN */}
+
+              <div className="mecanicas-guia-cabecera">
+
+                <h3>{control.titulo}</h3>
+
+                <div className="mecanicas-guia-ilustracion">
+                  <Icono
+                    size={38}
+                    strokeWidth={1.8}
+                    aria-hidden="true"
+                  />
+                </div>
+
+              </div>
+
+              {/* =====================================
+                  TECLAS O BOTONES DEL MANDO
+              ===================================== */}
+
+              <div className="mecanicas-guia-entrada">
+
+                {/* MOVIMIENTO CON TECLADO */}
+
+                {tipoControl === 'teclado' &&
+                control.id === 'mover' ? (
+
+                  <div className="mecanicas-guia-wasd">
+
+                    <kbd>W</kbd>
+
+                    <div>
+                      <kbd>A</kbd>
+                      <kbd>S</kbd>
+                      <kbd>D</kbd>
+                    </div>
+
+                  </div>
+
+                ) : tipoControl === 'mando' &&
+                control.id === 'mover' ? (
+
+                  /* MOVIMIENTO CON MANDO */
+
+                  <div className="mecanicas-guia-movimiento-mando">
+
+                    <div
+                      className="mecanicas-guia-dpad"
+                      aria-label="Cruceta direccional"
+                      role="img"
+                    >
+                      <span>▲</span>
+                      <span>◀</span>
+                      <span>▶</span>
+                      <span>▼</span>
+                    </div>
+
+                    <span className="mecanicas-guia-o">
+                      o
+                    </span>
+
+                    <div
+                      className="mecanicas-guia-joystick"
+                      aria-label="Joystick"
+                      role="img"
+                    >
+                      <span />
+                    </div>
+
+                  </div>
+
+                ) : (
+
+                  /* DEMÁS TECLAS Y BOTONES */
+
+                  <div className="mecanicas-guia-botones">
+
+                    {control[tipoControl].map((boton) => (
+                      <kbd key={boton}>
+                        {boton}
+                      </kbd>
+                    ))}
+
+                  </div>
+
+                )}
+
+              </div>
+
+              {/* DESCRIPCIÓN */}
+
+              <p>{control.descripcion}</p>
+
+              {/* INDICADOR DE GEMA VERDE */}
+
+              {control.id === 'doble-salto' && (
+
+                <div className="mecanicas-guia-gema">
+                  <Gem
+                    size={17}
+                    aria-hidden="true"
+                  />
+                  Gema verde
+                </div>
+
+              )}
+
+            </article>
+          )
+        })}
+
       </div>
 
     </div>
@@ -143,6 +432,7 @@ function Mecanicas() {
       ===================================== */}
 
       <section className="panel-wiki revelar">
+
         <h1>Mecánicas</h1>
 
         <p>
@@ -156,14 +446,15 @@ function Mecanicas() {
           los controles y las principales mecánicas
           de movimiento, combate, salud y supervivencia.
         </p>
+
       </section>
 
       {/* =====================================
           CÓMO JUGAR
-          MATEO CHIBI CON INTERROGACIÓN
       ===================================== */}
 
       <section className="panel-wiki revelar">
+
         <h2>¿Cómo jugar?</h2>
 
         <p>
@@ -175,11 +466,12 @@ function Mecanicas() {
         <div className="mecanicas-con-mateo">
 
           {/* INSTRUCCIONES */}
+
           <ol className="mecanicas-pasos">
 
             <li>
-              Aprende a caminar, saltar y agacharte
-              durante el tutorial del laboratorio.
+              Aprende a moverte y saltar durante
+              el tutorial del laboratorio.
             </li>
 
             <li>
@@ -211,44 +503,74 @@ function Mecanicas() {
           </ol>
 
           {/* MATEO PENSATIVO */}
+
           <ImagenWiki
             src="/images/mateo-pregunta.png"
             alt="Doctor Mateo chibi con un signo de interrogación"
             className="mecanicas-mateo-chibi"
-            loading="lazy"
           />
 
         </div>
+
       </section>
 
       {/* =====================================
-          CONTROLES
+          CONTROLES DE TECLADO Y MANDO
       ===================================== */}
 
       <section className="panel-wiki revelar">
+
         <h2>Controles</h2>
 
         <p>
-          Estos son los controles propuestos para
-          realizar las acciones principales de Mateo.
+          Estos son los controles actuales para
+          realizar las acciones principales de Mateo,
+          tanto con teclado como con mando.
         </p>
 
         <p className="mecanicas-aviso">
-          Controles provisionales. La asignación
-          definitiva de las teclas puede cambiar
+          Los controles pueden recibir ajustes
           durante el desarrollo del videojuego.
         </p>
 
-        <div className="mecanicas-tabla-controles">
+        {/* TECLADO */}
 
-          {controles.map((control) => (
-            <FichaControl
-              key={control.accion}
-              control={control}
-            />
-          ))}
+        <div className="mecanicas-grupo-controles">
+
+          <h3>Teclado</h3>
+
+          <div className="mecanicas-tabla-controles">
+
+            {controlesTeclado.map((control) => (
+              <FichaControl
+                key={`teclado-${control.accion}`}
+                control={control}
+              />
+            ))}
+
+          </div>
 
         </div>
+
+        {/* MANDO */}
+
+        <div className="mecanicas-grupo-controles">
+
+          <h3>Mando</h3>
+
+          <div className="mecanicas-tabla-controles">
+
+            {controlesMando.map((control) => (
+              <FichaControl
+                key={`mando-${control.accion}`}
+                control={control}
+              />
+            ))}
+
+          </div>
+
+        </div>
+
       </section>
 
       {/* =====================================
@@ -256,34 +578,25 @@ function Mecanicas() {
       ===================================== */}
 
       <section className="panel-wiki revelar">
+
         <h2>Guía visual de controles</h2>
 
         <p>
-          Esta ilustración muestra las teclas
-          propuestas para moverte, saltar,
-          agacharte y disparar.
+          Selecciona el tipo de control que utilizarás
+          para descubrir cómo mover a Mateo, saltar,
+          disparar y activar las habilidades de las gemas.
         </p>
 
-        <div className="mecanicas-imagen-controles">
-          <ImagenWiki
-            src="/images/controles-mecanicas.png"
-            alt="Guía visual de los controles provisionales de Esperanza en el Cielo"
-            loading="lazy"
-          />
-        </div>
-
-        <p className="mecanicas-pie-imagen">
-          Esquema provisional de controles para PC.
-        </p>
+        <GuiaVisualControles />
 
       </section>
 
       {/* =====================================
           MECÁNICAS DE JUEGO
-          MATEO CHIBI DISPARANDO
       ===================================== */}
 
       <section className="panel-wiki revelar">
+
         <h2>Mecánicas de juego</h2>
 
         <p>
@@ -294,9 +607,11 @@ function Mecanicas() {
         <div className="mecanicas-con-mateo">
 
           {/* TARJETAS DE MECÁNICAS */}
+
           <div className="mecanicas-grid">
 
             {mecanicas.map((mecanica) => (
+
               <article
                 key={mecanica.numero}
                 className="mecanicas-tarjeta"
@@ -311,19 +626,21 @@ function Mecanicas() {
                 <p>{mecanica.descripcion}</p>
 
               </article>
+
             ))}
 
           </div>
 
           {/* MATEO DISPARANDO */}
+
           <ImagenWiki
             src="/images/mateo-disparando.png"
             alt="Doctor Mateo chibi disparando su pistola de pulso"
             className="mecanicas-mateo-chibi"
-            loading="lazy"
           />
 
         </div>
+
       </section>
 
       {/* =====================================
@@ -331,6 +648,7 @@ function Mecanicas() {
       ===================================== */}
 
       <section className="panel-wiki revelar">
+
         <h2>Curación y daño</h2>
 
         <p>
@@ -342,7 +660,9 @@ function Mecanicas() {
         <div className="mecanicas-sistemas">
 
           {/* CURACIÓN */}
+
           <div className="mecanicas-sistema curacion">
+
             <h3>Recuperar salud</h3>
 
             <p>
@@ -356,10 +676,13 @@ function Mecanicas() {
               automáticamente por contacto,
               sin necesidad de presionar una tecla.
             </p>
+
           </div>
 
           {/* DAÑO */}
+
           <div className="mecanicas-sistema dano">
+
             <h3>Recibir daño</h3>
 
             <p>
@@ -372,9 +695,11 @@ function Mecanicas() {
               vida cuando encuentres suministros
               médicos durante el recorrido.
             </p>
+
           </div>
 
         </div>
+
       </section>
 
       {/* =====================================
@@ -382,6 +707,7 @@ function Mecanicas() {
       ===================================== */}
 
       <section className="panel-wiki revelar">
+
         <h2>Habilidades del traje</h2>
 
         <p>
@@ -393,6 +719,7 @@ function Mecanicas() {
         <div className="mecanicas-habilidades">
 
           {habilidades.map((habilidad) => (
+
             <div
               key={habilidad.nombre}
               className="mecanicas-habilidad"
@@ -408,13 +735,16 @@ function Mecanicas() {
               <p>{habilidad.descripcion}</p>
 
             </div>
+
           ))}
 
         </div>
 
         <p className="mecanicas-nota">
-          Las teclas para activar estas habilidades
-          se definirán durante el desarrollo del juego.
+          La gema verde permite realizar un segundo
+          salto mientras Mateo está en el aire.
+          Las gemas roja y azul se activan con
+          K en teclado o X en mando.
         </p>
 
       </section>

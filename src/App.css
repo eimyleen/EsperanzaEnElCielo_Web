@@ -3035,6 +3035,752 @@
   }
 }
 
+/* ========================================
+   GUÍA VISUAL HOLOGRÁFICA DE CONTROLES
+======================================== */
+
+.mecanicas-guia-visual {
+  margin-top: 25px;
+}
+
+/* SELECTOR TECLADO / MANDO */
+
+.mecanicas-guia-selector {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.mecanicas-guia-tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 24px;
+  background: #151d3a;
+  border: 2px solid #334d80;
+  border-radius: 10px;
+  color: #c5d8f5;
+  font-family: 'Oxanium', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.mecanicas-guia-tab:hover {
+  border-color: #40dfff;
+}
+
+.mecanicas-guia-tab.activo {
+  color: #ffffff;
+  background: #123c61;
+  border-color: #40dfff;
+  box-shadow: 0 0 12px rgba(64, 223, 255, 0.25);
+}
+
+/* CUADRÍCULA DE TARJETAS */
+
+.mecanicas-guia-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.mecanicas-guia-tarjeta {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+  padding: 24px 20px;
+  overflow: hidden;
+
+  background:
+    linear-gradient(rgba(40, 114, 189, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(40, 114, 189, 0.1) 1px, transparent 1px),
+    #081b3b;
+
+  background-size: 28px 28px;
+
+  border: 2px solid #26baf0;
+  border-radius: 13px;
+  box-shadow:
+    inset 0 0 20px rgba(23, 114, 220, 0.15),
+    0 0 10px rgba(29, 193, 255, 0.12);
+
+  text-align: center;
+}
+
+.mecanicas-guia-tarjeta.gema-verde {
+  grid-column: 1 / -1;
+}
+
+/* TÍTULO E ICONO */
+
+.mecanicas-guia-cabecera {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.mecanicas-guia-cabecera h3 {
+  margin: 0;
+  font-family: 'Oxanium', sans-serif;
+  color: #baf8ff;
+  font-size: 1.15rem;
+  text-align: center;
+}
+
+.mecanicas-guia-ilustracion {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  border: 2px solid #45dcff;
+  border-radius: 15px;
+  color: #5aeaff;
+  background: rgba(34, 160, 240, 0.12);
+  box-shadow: 0 0 14px rgba(47, 202, 255, 0.15);
+}
+
+/* CONTENEDOR DE LAS TECLAS */
+
+.mecanicas-guia-entrada {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 90px;
+  width: 100%;
+}
+
+.mecanicas-guia-botones {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.mecanicas-guia-entrada kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 56px;
+  min-height: 56px;
+  padding: 9px 15px;
+
+  border: 3px solid #4fdfff;
+  border-bottom-width: 6px;
+  border-radius: 9px;
+
+  background: #103b69;
+  color: #e8fcff;
+  font-family: 'Oxanium', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  box-shadow: inset 0 0 12px rgba(70, 218, 255, 0.18);
+}
+
+/* DISTRIBUCIÓN WASD */
+
+.mecanicas-guia-wasd {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.mecanicas-guia-wasd > div {
+  display: flex;
+  gap: 6px;
+}
+
+/* D-PAD Y JOYSTICK */
+
+.mecanicas-guia-movimiento-mando {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.mecanicas-guia-dpad {
+  display: grid;
+  grid-template-columns: repeat(3, 24px);
+  grid-template-rows: repeat(3, 24px);
+  align-items: center;
+  justify-items: center;
+  color: #73ecff;
+  font-size: 19px;
+}
+
+.mecanicas-guia-dpad span:nth-child(1) {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.mecanicas-guia-dpad span:nth-child(2) {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.mecanicas-guia-dpad span:nth-child(3) {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.mecanicas-guia-dpad span:nth-child(4) {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+.mecanicas-guia-o {
+  color: #a5c9e1;
+  font-weight: 700;
+}
+
+.mecanicas-guia-joystick {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 65px;
+  height: 65px;
+  border: 3px solid #4fdfff;
+  border-radius: 50%;
+  background: #103b69;
+}
+
+.mecanicas-guia-joystick span {
+  width: 31px;
+  height: 31px;
+  border-radius: 50%;
+  background: #65ddff;
+  box-shadow: 0 0 10px rgba(101, 221, 255, 0.4);
+}
+
+/* TEXTO EXPLICATIVO */
+
+.mecanicas-guia-tarjeta > p {
+  max-width: 330px;
+  margin: 0;
+  color: #d2e8f5;
+  line-height: 1.65;
+  text-align: center;
+}
+
+/* INDICADOR GEMA VERDE */
+
+.mecanicas-guia-gema {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  border: 1px solid #61f794;
+  border-radius: 20px;
+  background: rgba(61, 255, 130, 0.1);
+  color: #8affb1;
+  font-weight: 700;
+}
+
+.mecanicas-guia-tarjeta.gema-verde
+.mecanicas-guia-ilustracion {
+  border-color: #61f794;
+  color: #8affb1;
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 768px) {
+  .mecanicas-guia-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mecanicas-guia-tarjeta.gema-verde {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .mecanicas-guia-tarjeta {
+    padding: 20px 12px;
+  }
+
+  .mecanicas-guia-tab {
+    flex: 1;
+    padding: 12px;
+  }
+
+  .mecanicas-guia-cabecera h3 {
+    font-size: 1.05rem;
+  }
+
+  .mecanicas-guia-entrada kbd {
+    min-width: 48px;
+    min-height: 48px;
+    font-size: 1rem;
+  }
+}
 
 
+/* ========================================
+   OBJETOS - MICROCHIP COLECCIONABLE
+======================================== */
 
+.objeto-microchip {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  align-items: center;
+  gap: 30px;
+
+  margin-top: 25px;
+  padding: 25px;
+
+  background: rgba(101, 230, 170, 0.06);
+  border: 1px solid rgba(101, 230, 170, 0.3);
+  border-radius: 14px;
+}
+
+.objeto-microchip-imagen {
+  display: block;
+  width: 100%;
+  max-width: 180px;
+  height: auto;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+.objeto-microchip-texto {
+  min-width: 0;
+}
+
+.objeto-microchip-texto h3 {
+  color: #65e6aa;
+  font-family: 'Oxanium', sans-serif;
+  margin-bottom: 12px;
+}
+
+.objeto-microchip-etiqueta {
+  display: inline-block;
+  padding: 5px 13px;
+  margin-bottom: 15px;
+
+  color: #8affbe;
+  background: rgba(101, 230, 170, 0.1);
+  border: 1px solid rgba(101, 230, 170, 0.4);
+  border-radius: 20px;
+
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.objeto-microchip-texto p {
+  line-height: 1.8;
+}
+
+/* TABLETS */
+
+@media (max-width: 768px) {
+  .objeto-microchip {
+    grid-template-columns: 140px minmax(0, 1fr);
+    gap: 20px;
+  }
+
+  .objeto-microchip-imagen {
+    max-width: 140px;
+  }
+}
+
+/* CELULARES */
+
+@media (max-width: 600px) {
+  .objeto-microchip {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 15px;
+    padding: 20px;
+  }
+
+  .objeto-microchip-imagen {
+    max-width: 150px;
+  }
+
+  .objeto-microchip-etiqueta {
+    margin: 10px 0 15px;
+  }
+}
+
+
+/* ========================================
+   OBJETOS - ETIQUETAS
+======================================== */
+
+.objeto-etiquetas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+/* ETIQUETA INDIVIDUAL */
+
+.objeto-etiqueta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 7px 14px;
+
+  color: var(--objeto-color, #65e6aa);
+  background: rgba(101, 230, 170, 0.08);
+  border: 1px solid var(--objeto-color, #65e6aa);
+  border-radius: 20px;
+
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 600px) {
+  .objeto-etiquetas {
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .objeto-etiqueta {
+    padding: 6px 11px;
+    font-size: 0.75rem;
+  }
+}
+
+
+/* ========================================
+   OBJETOS - DISEÑO ORIGINAL RESTAURADO
+======================================== */
+
+.objeto-restaurado {
+  padding: 38px 40px;
+  margin-bottom: 28px;
+
+  background: rgba(20, 19, 43, 0.95);
+  border: 2px solid var(--objeto-color, #65caff);
+  border-radius: 16px;
+
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.15);
+}
+
+/* ========================================
+   ENCABEZADO
+======================================== */
+
+.objeto-restaurado-encabezado {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+
+  margin-bottom: 22px;
+}
+
+.objeto-restaurado-categoria {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 7px 14px;
+
+  color: var(--objeto-color, #65caff);
+  background: rgba(101, 202, 255, 0.08);
+  border: 1px solid var(--objeto-color, #65caff);
+  border-radius: 30px;
+
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.objeto-restaurado-encabezado h3 {
+  margin: 0;
+
+  color: #f7f7ff;
+  font-size: 1.7rem;
+  font-weight: 800;
+}
+
+/* ========================================
+   IMAGEN + INFORMACIÓN
+======================================== */
+
+.objeto-restaurado-cuerpo {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 45px;
+  align-items: center;
+
+  margin-bottom: 30px;
+}
+
+.objeto-restaurado-imagen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 0;
+  min-height: 200px;
+}
+
+.objeto-restaurado-img,
+.objeto-restaurado-img img {
+  display: block;
+
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+.objeto-restaurado-informacion {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  min-width: 0;
+}
+
+.objeto-restaurado-descripcion {
+  margin: 0;
+
+  color: #d8d8e8;
+  font-size: 1rem;
+  line-height: 1.9;
+}
+
+/* ========================================
+   FUNCIONAMIENTO
+======================================== */
+
+.objeto-restaurado-funcionamiento {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.objeto-restaurado-funcionamiento h4 {
+  margin: 0;
+
+  color: var(--objeto-color, #65caff);
+  font-size: 1.08rem;
+  font-weight: 800;
+}
+
+.objeto-restaurado-funcionamiento p {
+  margin: 0;
+
+  color: #d8d8e8;
+  font-size: 1rem;
+  line-height: 1.9;
+}
+
+/* ========================================
+   IMPORTANCIA EN EL JUEGO
+======================================== */
+
+.objeto-restaurado-importancia {
+  padding: 22px 24px;
+  margin-bottom: 22px;
+
+  background: rgba(39, 48, 80, 0.65);
+
+  border-left: 3px solid var(--objeto-color, #65caff);
+  border-radius: 8px;
+}
+
+.objeto-restaurado-importancia h4 {
+  margin: 0 0 14px;
+
+  color: var(--objeto-color, #65caff);
+  font-size: 1.08rem;
+  font-weight: 800;
+}
+
+.objeto-restaurado-importancia p {
+  margin: 0;
+
+  color: #d8d8e8;
+  font-size: 1rem;
+  line-height: 1.85;
+}
+
+/* ========================================
+   ETIQUETAS INFERIORES
+======================================== */
+
+.objeto-restaurado-etiquetas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.objeto-restaurado-etiqueta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 8px 14px;
+
+  background: rgba(15, 20, 40, 0.6);
+  color: #e5e8f3;
+
+  border: 1px solid var(--objeto-color, #65caff);
+  border-radius: 25px;
+
+  font-size: 0.83rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+/* ========================================
+   RESPONSIVE - TABLETS
+======================================== */
+
+@media (max-width: 900px) {
+
+  .objeto-restaurado {
+    padding: 28px;
+  }
+
+  .objeto-restaurado-cuerpo {
+    grid-template-columns: 160px minmax(0, 1fr);
+    gap: 25px;
+  }
+
+  .objeto-restaurado-img,
+  .objeto-restaurado-img img {
+    max-width: 160px;
+  }
+
+}
+
+/* ========================================
+   RESPONSIVE - CELULARES
+======================================== */
+
+@media (max-width: 600px) {
+
+  .objeto-restaurado {
+    padding: 20px;
+  }
+
+  .objeto-restaurado-cuerpo {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .objeto-restaurado-imagen {
+    min-height: 140px;
+  }
+
+  .objeto-restaurado-img,
+  .objeto-restaurado-img img {
+    max-width: 170px;
+  }
+
+  .objeto-restaurado-encabezado h3 {
+    font-size: 1.4rem;
+  }
+
+  .objeto-restaurado-importancia {
+    padding: 18px;
+  }
+
+  .objeto-restaurado-etiquetas {
+    gap: 8px;
+  }
+
+  .objeto-restaurado-etiqueta {
+    padding: 7px 11px;
+    font-size: 0.76rem;
+  }
+
+}
+
+
+/* ========================================
+   OBJETOS - ALINEACIÓN ALTERNADA
+======================================== */
+
+/* Imagen a la izquierda (normal) */
+
+.objeto-restaurado-cuerpo {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  align-items: center;
+  gap: 45px;
+}
+
+/* Imagen a la derecha */
+
+.objeto-restaurado.invertido .objeto-restaurado-cuerpo {
+  grid-template-columns: minmax(0, 1fr) 220px;
+}
+
+/* Información a la izquierda */
+
+.objeto-restaurado.invertido .objeto-restaurado-informacion {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+/* Imagen a la derecha */
+
+.objeto-restaurado.invertido .objeto-restaurado-imagen {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+/* TABLETS */
+
+@media (max-width: 900px) {
+  .objeto-restaurado-cuerpo {
+    grid-template-columns: 160px minmax(0, 1fr);
+    gap: 25px;
+  }
+
+  .objeto-restaurado.invertido .objeto-restaurado-cuerpo {
+    grid-template-columns: minmax(0, 1fr) 160px;
+  }
+}
+
+/* CELULARES */
+
+@media (max-width: 600px) {
+  .objeto-restaurado-cuerpo,
+  .objeto-restaurado.invertido .objeto-restaurado-cuerpo {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .objeto-restaurado.invertido .objeto-restaurado-imagen {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .objeto-restaurado.invertido .objeto-restaurado-informacion {
+    grid-column: 1;
+    grid-row: 2;
+  }
+}

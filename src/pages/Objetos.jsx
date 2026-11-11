@@ -1,13 +1,18 @@
 
+import ImagenWiki from '../components/ImagenWiki'
+
 /* ========================================
    OBJETOS - ESPERANZA EN EL CIELO
 ======================================== */
 
-import ImagenWiki from '../components/ImagenWiki'
+/* ========================================
+   INFORMACIÓN DE LOS OBJETOS
+======================================== */
 
 const objetos = [
+
   /* =====================================
-     EQUIPAMIENTO
+     PISTOLA DE PULSO
   ===================================== */
 
   {
@@ -15,7 +20,8 @@ const objetos = [
     nombre: 'Pistola de pulso',
     categoria: 'Arma principal',
     grupo: 'equipamiento',
-    color: '#86dfff',
+    color: '#65caff',
+    imagen: '/images/pistola-pulso.png',
 
     descripcion:
       'La pistola de pulso es el arma principal que utiliza el doctor Mateo para defenderse de los infectados. Se trata de un dispositivo de ciencia ficción diseñado para emitir disparos de energía. Su apariencia combina componentes blancos, naranjas y grises con un emisor de energía azul.',
@@ -30,237 +36,315 @@ const objetos = [
       'Arma',
       'Tecnología',
       'Ataque a distancia'
-    ],
-
-    imagen: '/images/pistola-pulso.png',
-    invertido: false
+    ]
   },
 
   /* =====================================
-     GEMAS DE ENERGÍA
+     GEMA VERDE
   ===================================== */
 
   {
     id: 'gema-verde',
     nombre: 'Gema verde',
-    categoria: 'Objeto especial',
-    grupo: 'energia',
+    categoria: 'Gema de energía',
+    grupo: 'gemas',
     color: '#65e6aa',
+    imagen: '/images/gema-verde.png',
 
     descripcion:
-      'La gema verde es un cristal especial de color verde brillante. Su estructura en forma de diamante contiene energía que puede ser aprovechada por el traje experimental desarrollado por el doctor Mateo.',
+      'La gema verde es un cristal energético que puede integrarse al traje experimental de Mateo. Su energía permite mejorar las capacidades de movimiento del protagonista.',
 
     funcionamiento:
-      'Al absorber la energía de la gema verde, el traje de Mateo desbloquea la capacidad de realizar saltos impulsados. Esto le permite alcanzar lugares más altos y superar obstáculos que normalmente no podría atravesar.',
+      'Permite realizar un doble salto mientras Mateo se encuentra en el aire. Para utilizarlo, se debe presionar Espacio nuevamente en teclado o el botón A en mando.',
 
     importancia:
-      'Esta habilidad es especialmente útil para atravesar zonas con escombros, superficies peligrosas y obstáculos durante la exploración.',
+      'Permite alcanzar plataformas elevadas, superar obstáculos y acceder a nuevas zonas que no podrían explorarse utilizando únicamente el salto normal.',
 
     etiquetas: [
-      'Gema verde',
-      'Saltos impulsados',
-      'Energía',
-      'Coleccionable'
-    ],
-
-    imagen: '/images/gema-verde.png',
-    invertido: true
+      'Gema',
+      'Doble salto',
+      'Movimiento'
+    ]
   },
+
+  /* =====================================
+     GEMA ROJA
+  ===================================== */
 
   {
     id: 'gema-roja',
     nombre: 'Gema roja',
-    categoria: 'Objeto especial',
-    grupo: 'energia',
+    categoria: 'Gema de energía',
+    grupo: 'gemas',
     color: '#ff637c',
+    imagen: '/images/gema-roja.png',
 
     descripcion:
-      'La gema roja es un cristal energético de color rojo intenso. Comparte la misma forma de diamante que las otras gemas, pero se distingue por su coloración y brillo.',
+      'La gema roja contiene una gran cantidad de energía que puede aprovecharse mediante el traje experimental de Mateo. Está relacionada con el uso de pulsos energéticos.',
 
     funcionamiento:
-      'Al absorber la gema roja, el traje de Mateo obtiene la capacidad de emitir un poderoso pulso de energía. Este puede utilizarse para defenderse de ataques directos y despejar barreras eléctricas.',
+      'Permite emitir un pulso de energía para defenderse y despejar determinadas barreras eléctricas. Su habilidad se activa con K en teclado o X en mando.',
 
     importancia:
-      'Permite a Mateo superar sistemas de seguridad y protegerse durante situaciones peligrosas, especialmente en las instalaciones de la torre orbital.',
+      'Proporciona una habilidad adicional para enfrentar amenazas y superar obstáculos tecnológicos que aparecen durante la aventura.',
 
     etiquetas: [
-      'Gema roja',
-      'Pulso de energía',
-      'Defensa',
-      'Coleccionable'
-    ],
-
-    imagen: '/images/gema-roja.png',
-    invertido: false
+      'Gema',
+      'Energía',
+      'Pulso'
+    ]
   },
+
+  /* =====================================
+     GEMA AZUL
+  ===================================== */
 
   {
     id: 'gema-azul',
     nombre: 'Gema azul',
-    categoria: 'Objeto especial',
-    grupo: 'energia',
+    categoria: 'Gema de energía',
+    grupo: 'gemas',
     color: '#65caff',
+    imagen: '/images/gema-azul.png',
 
     descripcion:
-      'La gema azul es un cristal energético de color azul brillante. Conserva la misma estructura de diamante que las otras gemas y presenta diferentes tonos azules en sus facetas.',
+      'La gema azul es un cristal especial que permite aprovechar la energía del traje experimental para mejorar la movilidad y agilidad de Mateo.',
 
     funcionamiento:
-      'Al absorber la energía de la gema azul, el traje de Mateo aumenta considerablemente su velocidad y agilidad, permitiéndole desplazarse más rápido y esquivar ataques enemigos.',
+      'Proporciona mayor velocidad y agilidad para desplazarse por los escenarios y evitar amenazas. Su función se activa con K en teclado o X en mando.',
 
     importancia:
-      'Esta habilidad resulta fundamental durante la evacuación final, cuando Mateo debe superar enemigos y activar el mecanismo de limpieza de la rampa para alcanzar la nave.',
+      'Facilita el desplazamiento por zonas peligrosas y permite reaccionar con mayor rapidez durante los enfrentamientos con los infectados.',
 
     etiquetas: [
-      'Gema azul',
+      'Gema',
       'Velocidad',
-      'Agilidad',
-      'Coleccionable'
-    ],
-
-    imagen: '/images/gema-azul.png',
-    invertido: true
+      'Agilidad'
+    ]
   },
 
   /* =====================================
-     OBJETOS DE CURACIÓN
+     VENDA
   ===================================== */
 
   {
     id: 'venda',
     nombre: 'Venda',
-    categoria: 'Curación menor',
+    categoria: 'Curación',
     grupo: 'curacion',
-    color: '#7ce5bd',
+    color: '#65e6aa',
+    imagen: '/images/venda.png',
 
     descripcion:
-      'La venda es un objeto de primeros auxilios que Mateo puede encontrar durante su recorrido. Consiste en un rollo de material médico blanco con una cruz roja que identifica su función curativa.',
+      'La venda es un suministro médico básico que puede encontrarse en distintos lugares del escenario. Permite tratar heridas leves y recuperar parte de la salud de Mateo.',
 
     funcionamiento:
-      'Permite recuperar una cantidad pequeña de salud cuando el personaje ha recibido daño. Puede utilizarse desde el inventario del jugador.',
+      'Restaura una pequeña cantidad de salud. Su efecto se aplica automáticamente cuando Mateo entra en contacto con el objeto.',
 
     importancia:
-      'Es un recurso útil para recuperarse de heridas menores y continuar explorando sin gastar objetos de curación más potentes.',
+      'Ayuda a recuperar parte de la salud después de recibir ataques. Es especialmente útil durante la exploración y los enfrentamientos menores.',
 
     etiquetas: [
-      'Consumible',
-      'Primeros auxilios',
-      'Curación menor'
-    ],
-
-    imagen: '/images/venda.png',
-    invertido: false
+      'Salud',
+      'Curación menor',
+      'Suministro médico'
+    ]
   },
+
+  /* =====================================
+     BOTIQUÍN
+  ===================================== */
 
   {
     id: 'botiquin',
     nombre: 'Botiquín',
-    categoria: 'Curación mayor',
+    categoria: 'Curación',
     grupo: 'curacion',
-    color: '#ff8496',
+    color: '#ff637c',
+    imagen: '/images/botiquin.png',
 
     descripcion:
-      'El botiquín es un objeto médico que contiene suministros de primeros auxilios. Tiene forma de maletín, con una estructura azul y blanca, un asa roja y una cruz roja en la parte frontal.',
+      'El botiquín es un equipo de primeros auxilios que contiene suministros médicos destinados a tratar heridas y recuperar la salud de Mateo.',
 
     funcionamiento:
-      'Al utilizarlo, el jugador puede recuperar una cantidad de salud mayor que la proporcionada por una venda.',
+      'Permite recuperar una cantidad mayor de salud que una venda. Se recoge por contacto y su efecto se aplica automáticamente.',
 
     importancia:
-      'Es uno de los recursos de supervivencia más importantes, especialmente durante los enfrentamientos difíciles y los recorridos con múltiples enemigos.',
+      'Resulta especialmente importante después de combates difíciles o cuando Mateo ha perdido una gran cantidad de salud.',
 
     etiquetas: [
-      'Consumible',
-      'Primeros auxilios',
-      'Curación mayor'
-    ],
+      'Salud',
+      'Curación mayor',
+      'Primeros auxilios'
+    ]
+  },
 
-    imagen: '/images/botiquin.png',
-    invertido: true
+  /* =====================================
+     MICROCHIP COLECCIONABLE
+  ===================================== */
+
+  {
+    id: 'microchip',
+    nombre: 'Microchip',
+    categoria: 'Coleccionable',
+    grupo: 'coleccionables',
+    color: '#65e6aa',
+    imagen: '/images/microchip.png',
+
+    descripcion:
+      'Un pequeño circuito electrónico de color verde que Mateo puede encontrar durante su aventura. Su apariencia tecnológica destaca entre los objetos distribuidos por los escenarios.',
+
+    funcionamiento:
+      'Es un objeto coleccionable que puede recogerse durante la exploración de los niveles.',
+
+    importancia:
+      'Forma parte de los elementos coleccionables del videojuego e incentiva la exploración de los diferentes escenarios.',
+
+    etiquetas: [
+      'Coleccionable',
+      'Microchip',
+      'Exploración'
+    ]
   }
+
 ]
 
 /* ========================================
    CATEGORÍAS DE OBJETOS
 ======================================== */
 
-const grupos = [
+const secciones = [
   {
     id: 'equipamiento',
-    titulo: 'Equipamiento'
+    titulo: 'Equipamiento',
+    descripcion:
+      'Herramientas y dispositivos que Mateo utiliza para defenderse y sobrevivir durante su aventura.'
   },
   {
-    id: 'energia',
-    titulo: 'Gemas de energía'
+    id: 'gemas',
+    titulo: 'Gemas de energía',
+    descripcion:
+      'Cristales especiales que pueden integrarse al traje experimental de Mateo para otorgarle diferentes habilidades.'
   },
   {
     id: 'curacion',
-    titulo: 'Objetos de curación'
+    titulo: 'Objetos de curación',
+    descripcion:
+      'Suministros médicos que permiten recuperar la salud de Mateo después de recibir ataques.'
+  },
+  {
+    id: 'coleccionables',
+    titulo: 'Objetos coleccionables',
+    descripcion:
+      'Objetos especiales distribuidos por los escenarios que Mateo puede encontrar y recoger mientras explora los niveles.'
   }
 ]
 
 /* ========================================
-   COMPONENTE DE FICHA
+   COMPONENTE - FICHA DE OBJETO
 ======================================== */
 
-function FichaObjeto({ objeto }) {
+function FichaObjeto({ objeto, invertido = false }) {
   return (
     <article
       id={objeto.id}
-      className="panel-wiki ficha-objeto revelar"
-      style={{ '--objeto-color': objeto.color }}
+      className={`panel-wiki revelar objeto-restaurado ${
+        invertido ? 'invertido' : ''
+      }`}
+      style={{
+        '--objeto-color': objeto.color
+      }}
     >
 
-      {/* ENCABEZADO */}
-      <div className="objeto-encabezado">
-        <span className="objeto-categoria">
+      {/* =====================================
+          ENCABEZADO DEL OBJETO
+      ===================================== */}
+
+      <div className="objeto-restaurado-encabezado">
+
+        <span className="objeto-restaurado-categoria">
           {objeto.categoria}
         </span>
 
-        <h2>{objeto.nombre}</h2>
+        <h3>{objeto.nombre}</h3>
+
       </div>
 
-      {/* IMAGEN Y DESCRIPCIÓN */}
-      <div
-        className={`objeto-cuerpo ${
-          objeto.invertido ? 'objeto-invertido' : ''
-        }`}
-      >
+      {/* =====================================
+          IMAGEN Y DESCRIPCIÓN
+      ===================================== */}
 
-        {/* ILUSTRACIÓN */}
-        <div className="objeto-imagen">
+      <div className="objeto-restaurado-cuerpo">
+
+        {/* IMAGEN DEL OBJETO */}
+
+        <div className="objeto-restaurado-imagen">
+
           <ImagenWiki
             src={objeto.imagen}
-            alt={`Ilustración de ${objeto.nombre}`}
-            loading="lazy"
+            alt={`Imagen de ${objeto.nombre} de Esperanza en el Cielo`}
+            className="objeto-restaurado-img"
           />
+
         </div>
 
-        {/* INFORMACIÓN */}
-        <div className="objeto-informacion">
-          <p>{objeto.descripcion}</p>
+        {/* INFORMACIÓN DEL OBJETO */}
 
-          <h3>
-            {objeto.grupo === 'energia'
-              ? 'Habilidad de la gema'
-              : 'Funcionamiento'}
-          </h3>
+        <div className="objeto-restaurado-informacion">
 
-          <p>{objeto.funcionamiento}</p>
+          {/* DESCRIPCIÓN */}
+
+          <p className="objeto-restaurado-descripcion">
+            {objeto.descripcion}
+          </p>
+
+          {/* FUNCIONAMIENTO */}
+
+          <div className="objeto-restaurado-funcionamiento">
+
+            <h4>Funcionamiento</h4>
+
+            <p>
+              {objeto.funcionamiento}
+            </p>
+
+          </div>
+
         </div>
+
       </div>
 
-      {/* IMPORTANCIA */}
-      <div className="objeto-apartado">
-        <h3>Importancia en el juego</h3>
-        <p>{objeto.importancia}</p>
+      {/* =====================================
+          IMPORTANCIA EN EL JUEGO
+      ===================================== */}
+
+      <div className="objeto-restaurado-importancia">
+
+        <h4>Importancia en el juego</h4>
+
+        <p>
+          {objeto.importancia}
+        </p>
+
       </div>
 
-      {/* ETIQUETAS */}
-      <div className="etiquetas-objeto">
+      {/* =====================================
+          ETIQUETAS INFERIORES
+      ===================================== */}
+
+      <div className="objeto-restaurado-etiquetas">
+
         {objeto.etiquetas.map((etiqueta) => (
-          <span key={etiqueta}>
+
+          <span
+            key={etiqueta}
+            className="objeto-restaurado-etiqueta"
+          >
             {etiqueta}
           </span>
+
         ))}
+
       </div>
 
     </article>
@@ -268,59 +352,93 @@ function FichaObjeto({ objeto }) {
 }
 
 /* ========================================
-   PÁGINA DE OBJETOS
+   PÁGINA PRINCIPAL - OBJETOS
 ======================================== */
 
 function Objetos() {
   return (
     <div className="pagina-objetos">
 
-      {/* INTRODUCCIÓN */}
+      {/* =====================================
+          INTRODUCCIÓN
+      ===================================== */}
+
       <section className="panel-wiki revelar">
+
         <h1>Objetos</h1>
 
         <p>
           Durante su aventura, el doctor Mateo
-          encontrará diferentes objetos que serán
-          importantes para sobrevivir, combatir
-          enemigos y avanzar por los escenarios
-          de Esperanza en el Cielo.
+          encontrará diferentes objetos que le
+          ayudarán a sobrevivir y avanzar por
+          los escenarios de Esperanza en el Cielo.
         </p>
 
         <p>
-          Algunos forman parte de su equipamiento,
-          mientras que otros sirven para recuperar
-          salud o aprovechar las capacidades
-          de su traje experimental.
+          Conoce las armas, gemas de energía,
+          suministros médicos y objetos coleccionables
+          que forman parte del videojuego.
         </p>
+
       </section>
 
-      {/* CATEGORÍAS Y OBJETOS */}
-      {grupos.map((grupo) => (
-        <section
-          key={grupo.id}
-          aria-labelledby={`grupo-${grupo.id}`}
-        >
+      {/* =====================================
+          SECCIONES DE OBJETOS
+      ===================================== */}
 
-          {/* TÍTULO DE CATEGORÍA */}
-          <h2
-            id={`grupo-${grupo.id}`}
-            className="titulo-grupo-objetos"
+      {secciones.map((seccion) => {
+
+        const objetosSeccion = objetos.filter(
+          (objeto) => objeto.grupo === seccion.id
+        )
+
+        return (
+          <section
+            key={seccion.id}
+            className="objetos-seccion"
+            aria-labelledby={`titulo-${seccion.id}`}
           >
-            {grupo.titulo}
-          </h2>
 
-          {/* FICHAS DE LA CATEGORÍA */}
-          {objetos
-            .filter((objeto) => objeto.grupo === grupo.id)
-            .map((objeto) => (
-              <FichaObjeto
-                key={objeto.id}
-                objeto={objeto}
-              />
-            ))}
-        </section>
-      ))}
+            {/* ENCABEZADO DE CATEGORÍA */}
+
+            <div className="panel-wiki revelar">
+
+              <h2 id={`titulo-${seccion.id}`}>
+                {seccion.titulo}
+              </h2>
+
+              <p>
+                {seccion.descripcion}
+              </p>
+
+            </div>
+
+            {/* FICHAS DE LA CATEGORÍA */}
+
+            {objetosSeccion.map((objeto) => {
+
+              // Alternar imágenes a izquierda y derecha
+              // en toda la página, sin reiniciar
+              // la secuencia en cada categoría.
+
+              const indiceGlobal = objetos.findIndex(
+                (item) => item.id === objeto.id
+              )
+
+              const invertido = indiceGlobal % 2 !== 0
+
+              return (
+                <FichaObjeto
+                  key={objeto.id}
+                  objeto={objeto}
+                  invertido={invertido}
+                />
+              )
+            })}
+
+          </section>
+        )
+      })}
 
     </div>
   )
