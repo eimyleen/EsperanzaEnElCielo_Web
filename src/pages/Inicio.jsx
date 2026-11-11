@@ -1,6 +1,7 @@
 
 import ImagenWiki from '../components/ImagenWiki'
 import BotonInstalarPWA from '../components/BotonInstalarPWA'
+import DescargarJuego from '../components/DescargarJuego'
 
 /* ========================================
    REQUISITOS DEL VIDEOJUEGO
@@ -318,6 +319,9 @@ function Inicio() {
 
         </div>
       </section>
+
+      {/* DESCARGA DEL VIDEOJUEGO */}
+      <DescargarJuego />  
 
       {/* =====================================
           SECCIÓN 6: REQUISITOS
